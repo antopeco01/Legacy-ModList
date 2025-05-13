@@ -42,7 +42,7 @@
 
 | ***Name*** | ***Info*** | ***Addons*** | ***Fork*** |
 | --- | --- | --- | --- |
-| Advanced generators [[<img src=https://media.forgecdn.net/avatars/130/458/636460205549127215.png height=16>]](https://www.curseforge.com/minecraft/mc-mods/advanced-generators) | Multiblock advanced generators |  |  |
+| Advanced generators [<img src=https://media.forgecdn.net/avatars/130/458/636460205549127215.png height=16>](https://www.curseforge.com/minecraft/mc-mods/advanced-generators) | Multiblock advanced generators |  |  |
 | Big Reactors | Produce energy using reactors |  |  |
 | Deep resonance | Extraxt power from the crystals |  |  |
 
