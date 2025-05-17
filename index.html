@@ -1,298 +1,762 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>LegacyModList</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
+
+<head>
+  <!-- #region Head -->
+  <title>LegacyModList</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- #endregion Header -->
+  <style>
+    #content {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    body {
+      font-family: "Titillium Web", sans-serif;
+      background-color: #0d1117;
+      color: #ffffff;
+    }
+
+    h1 {
+      font-weight: 700;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 1rem;
+      padding-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    h2 {
+      font-weight: 600;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+      -webkit-text-stroke: 0;
+    }
+
+    .title-bar {
+      border-bottom: 1.5px solid #30363d;
+      margin-bottom: 2rem;
+      background-color: #010409;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    table {
+      color: #ffffff;
+    }
+
+    th {
+      background-color: #161b22 !important;
+      color: #ffffff;
+    }
+
+    td {
+      background-color: #0d1117 !important;
+    }
+
+    .table th,
+    .table td {
+      vertical-align: top;
+      text-align: left;
+      padding: 0.75rem;
+    }
+
+    td.name-row>em>strong {
+      color: #58a6ff;
+    }
+
+    td.name-row>a {
+      color: #ffffff;
+    }
+
+    td.addon-row em>strong>a {
+      color: #448361;
+    }
+
+    td.fork-row em>strong>a {
+      color: #cb912f;
+    }
+
+    #categoryMenuBtn {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1050;
+      background-color: #21262d;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #categoryMenuBtn:hover,
+    #categoryMenuBtn.active {
+      border: 2px solid #58a6ff;
+    }
+
+    .dropdown-menu {
+      background-color: #21262d;
+      border: 1px solid #30363d;
+    }
+
+    .dropdown-item {
+      color: #ffffff;
+    }
+
+    .dropdown-item:hover {
+      background-color: #30363d;
+      color: #58a6ff;
+    }
+
+    @media (max-width: 768px) {
       body {
-        font-family: "Inter", sans-serif;
-        padding: 2rem;
-        background-color: #121212;
-        color: #f1f1f1;
-      }
-
-      h1 {
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: #ffffff;
-      }
-
-      h2 {
-        font-weight: 600;
-        margin-top: 2.5rem;
-        margin-bottom: 1rem;
-        color: #ffc107;
-      }
-
-      hr {
-        border-top: 1px solid #444;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      table {
-        background-color: #1e1e1e;
-        color: #fff;
-      }
-
-      th {
-        background-color: #2c2c2c !important;
-        color: #f8f9fa;
-      }
-
-      td {
-        background-color: #1e1e1e;
+        padding: 1rem;
       }
 
       #categoryMenuBtn {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 1050;
-        font-weight: 600;
+        right: 0.5rem;
       }
+    }
+  </style>
+</head>
 
-      .dropdown-menu {
-        background-color: #212529;
-        border: 1px solid #333;
+<body>
+  <!-- Title Bar -->
+  <div class="title-bar">
+    <h1>Minecraft Legacy Modlist (1.7.10)</h1>
+  </div>
+
+  <!-- Navbar -->
+  <div class="dropdown">
+    <button class="btn" type="button" id="categoryMenuBtn" data-bs-toggle="dropdown" aria-expanded="false"
+      aria-label="Vai alla categoria">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M2.5 12.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1h-10a.5.5 0 0 1-.5-.5z" />
+      </svg>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end mt-2" id="categoryMenu"></ul>
+  </div>
+
+  <!-- Container -->
+  <div id="content" class="container-fluid"></div>
+
+  <!-- #region Script -->
+  <!-- Data -->
+  <script>
+    //Icons
+    const ICON_CURSE = `<img class="ms-2" src="https://media.forgecdn.net/avatars/130/458/636460205549127215.png" height="18" style="max-width: 100%" alt="CurseForge" />`;
+    const ICON_MODRINTH = `<img class="ms-2" src="https://camo.githubusercontent.com/90b5ec53efbbb2ea275e69de963f5bf737f16cdcc51677d83da92992486e66ae/68747470733a2f2f6d6f6472696e74682e636f6d2f66617669636f6e2e69636f" height="16" data-canonical-src="https://modrinth.com/favicon.ico" style="max-width: 100%;">`;
+    const ICON_GITHUB = `<i class="fa-brands fa-sm fa-github ms-2"></i>`;
+
+    function wrapIconWithLink(href, iconHtml) {
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${iconHtml}</a>`;
+    }
+
+    const jsonData = [
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech</span>',
+        mods: [
+          {
+            Name: `<em><strong>Advanced generators</strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/advanced-generators/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Adds multi-block and modular generators that can be powered with different fuels and adds a fuel called syngas that can beproduced using the mod`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Big Reactors</strong></em> ${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/big-reactors/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Energy production mod based on building nuclear reactors and turbines`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>BuildCraft</strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/buildcraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/buildcraft/versions?g=1.7.10", ICON_MODRINTH)}`,
+            Info: `Tech mod covering various aspects such as logistics, automated buildings machines, energy production and others useful machine`,
+            Addons: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/buildcraft-compat/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Compat</a></strong></em> &nbsp:&nbspAdds cross mod compatibility<br/> <em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/iron-tanks/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Iron tanks</a></strong></em> &nbsp:&nbspAdds tiered tanks<br/> <em><strong><a href="https://github.com/GTNewHorizons/LogisticsPipes">Logistic pipes</a></strong></em> &nbsp:&nbspAdds smart pipes to create advanced networks<br/> <em><strong><a href="https://github.com/GTNewHorizons/BuildCraftOilTweak">OilTweaks</a></strong></em> &nbsp:&nbspMake oil more dangerous<br/>`,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/BuildCraft">GTNH</a></strong></em>&nbsp:&nbspImproved performance and compatibility, fix bugs and kept up to date, add the respective forks for the addons <em><strong><a href="https://github.com/GTNewHorizons/BuildCraftCompat">Compat</a></strong></em><em> and <em><strong><a href="https://github.com/GTNewHorizons/Irontanks">Iron tanks</a></strong></em>`,
+          },
+          {
+            Name: `<em><strong>Deep resonance</strong></em> ${wrapIconWithLink("https://modrinth.com/mod/deep-resonance/versions?g=1.7.10", ICON_MODRINTH)}`,
+            Info: `Create energy from crystals that you can find in caves or in the overworld`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Ender IO </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/ender-io/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Full featured tech mod which adds tools, machines, conduit, inventory managment, energy production, multiblock energy storage etc. with a unique progression focused on endermans and other mobs`,
+            Addons: `<em><strong><a href="https://dl4.cdn9mc.com/index.php?act=dl&amp;id=1468315675">Simply jetpacks</a></strong></em> &nbsp:&nbspAdd tiered RF Jetpacks`,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/EnderIO">GTNH</a></strong></em>&nbsp:&nbsp<br/><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/enderio-unofficial/files/all?page=1&amp;pageSize=20">Unofficial</a></strong></em> &nbsp:&nbspBackport items and features from the 1.12.2 version as well as it's textures`,
+          },
+          {
+            Name: `<em><strong>GregTech</strong></em>`,
+            Info: ``,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Immersive Engineering </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/immersive-engineering/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Multipurpose tech mod that focuses on multi-block structures and offers an IC2 like EnergyNet which supports both RF and EU with a steampunk theme`,
+            Addons: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/immersive-integration/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Immersive integration</a></strong></em> &nbsp:&nbspAdds integrations with other mods`,
+            Fork: `<em><strong><a href="https://github.com/quentin452/ImmersiveEngineering">quentin452</a></strong></em> &nbsp:&nbspFix some bugs and crash`,
+          },
+          {
+            Name: `<em><strong>Industrial Craft 2 </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/industrial-craft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)} `,
+            Info: `Industrial tech mod with a realistic and complex progression, has a EnergyNet with voltages and transformers, nuclear reactors and assembly lines for more advanced craftings, also have a wide section of addons that enhance the experience`,
+            Addons: `<em><strong><a href="https://forum.industrial-craft.net/thread/3291-ic2-exp-1-7-10-advanced-solar-panels-v3-5-1-quantum-generator-solar-helmets/?pageNo=1">Advanced Solar Panel</a></strong></em> &nbsp:&nbspAdds advanced version of solar panels<br/><em><strong><a href="https://forum.industrial-craft.net/thread/6915-ic2-exp-1-7-10-gravitation-suite-v2-0-3/">Gravi Suite</a></strong></em> &nbsp:&nbspAdds advanced armor and other equipment<br/><em><strong><a href="https://github.com/RainbowTabitha/Gravitation-Suite-Neo-Deassetified">GraviSuite Neo</a></strong></em> &nbsp:&nbspAddon for GS that add more equipment<br/><em><strong></strong></em><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/asp-gs-patcher/files/all?page=1&amp;pageSize=20">ASP + GS patcher</a></strong></em> &nbsp:&nbsppatcher for the latest ic2 builds<br/><em><strong></strong></em><em><strong><a href="https://forum.industrial-craft.net/thread/12724-ic2-exp-1-7-10-compact-kinetic-generators/">Compact kinetic generators</a></strong></em> &nbsp:&nbspAdds 4 level compact wind kinetic, water kinetic and kinetic generators<br/><em><strong></strong></em><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/compact-solars/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Compact solars</a></strong></em> &nbsp:&nbspCompact solar arrays for IC2<br/><em><strong></strong></em><em><strong><a href="https://github.com/GTNewHorizons/Crops-plus-plus">Crops++</a></strong></em> &nbsp:&nbspExtend the IC2 crop breeding system adding 50+ new plants<br/><em><strong></strong></em><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/ic2-nei-crop-plugin/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">IC2 Crop-Breeding Plugin</a></strong></em> &nbsp:&nbspAllow to use the crop analyzer to calculate chances of breeding crops<br/><em><strong></strong></em><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/uncomplication/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Uncomplication</a></strong></em> &nbsp:&nbspPort some IC2classic's features such as the old EnergyNet and simpler crafting, configurable`,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>MagnetiCraft </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/magneticraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Realistic approach to machines and factories, includes huge multiblocks structures, various items and tools and it's own power system partially compatible with RF`,
+            Addons: ``,
+            Fork: `<em><strong><a href="https://github.com/voidsong-dragonfly/Magneticraft">voidsong-dragonfly</a></strong></em> &nbsp:&nbspBetter integration with Immersive Engineering removing most overlapping content`,
+          },
+          {
+            Name: `<em><strong>Mekanism </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/mekanism/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `The all in one tech mod, alone is enough to satisfy every need: energy production, storage and transport, logistics, advanced processing, automation and GAS!!`,
+            Addons: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-generators/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Generators</a></strong></em> &nbsp:&nbspModule which adds generators<br/><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-tools/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Tools</a></strong></em> &nbsp:&nbspModule which adds Armor, tools and weapons`,
+            Fork: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-ce/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Mekanism-CE</a></strong></em> &nbsp:&nbspUp to date version of the mod with new features, bugfixes and performance enhancement, changelog aviable, also have <em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-ce-generators/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Generators </a></strong></em>and <em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/mekanism-ce-tools/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Tools</a></strong></em>`,
+          },
+          {
+            Name: `<em><strong>MineFactory Reloaded </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/minefactory-reloaded/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Tech mod which adds a bunch of machines useful for automating mainly farming related processes plus other various utilities`,
+            Addons: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/mfr-magical-crops-compatibility/files/all?page=1&amp;pageSize=20">MFR magical crops compatibility</a></strong></em> &nbsp:&nbspAllow crops from Magical crops to be used by MFR machines`,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Thermal Expansion </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/thermal-expansion/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Technical processing mod`,
+            Addons: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/thermal-foundation/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Foundation</a></strong></em> &nbsp:&nbspBasics and resources module<br/><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/thermal-dynamics/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Dynamics</a></strong></em><a href="https://www.curseforge.com/minecraft/mc-mods/thermal-dynamics/files/all?page=1&amp;pageSize=20&amp;version=1.7.10"> </a>: Logistic and transport module<br/><em><strong><a href="https://dl4.cdn9mc.com/index.php?act=dl&amp;id=1468315675">Simply jetpacks</a></strong></em> &nbsp:&nbspAdd tiered RF Jetpacks<br/><em><strong><a href="">Solar expansion</a></strong></em> &nbsp:&nbspAdds tiered solar panels<br/><em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/thermal-smeltery/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Thermal smeltery</a></strong></em> &nbsp:&nbspMelt into Tinker's Construct Metals using magma crucible.`,
+            Fork: ``,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic</span>',
+        mods: [
+          {
+            Name: `<em><strong>Computer Craft </strong></em>${wrapIconWithLink("https://modrinth.com/mod/computercraft/versions?g=1.7.10", ICON_MODRINTH)}`,
+            Info: `Adds programmable computers and turtles using Lua and the ComputerCraft API`,
+            Addons: `<em><strong><a href="https://wiki.vexatos.com/wiki:computronics">Computronics</a></strong></em> &nbsp:&nbspAdds a set of computer peripheral  <em><strong><a href="https://openmods.info/#openperipheralaio-info">Open peripherials</a></strong></em>&nbsp:&nbspConvert blocks from different mods into peripherals    `,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Energy Control </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/energy-control/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Controls and monitors all types of machinery through panels and other tools provided by the mod`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Open Computers </strong></em><em><strong>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}</strong></em>  <em><strong>${wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH)}</strong></em>  ${wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)}`,
+            Info: `Adds fully persistent and programmable computer and robots that use Lua, designed to fit well in survival gamplay with features like enrgy and complex recipes, unlike ComputerCraft`,
+            Addons: `<em><strong><a href="https://wiki.vexatos.com/wiki:computronics">Computronics</a></strong></em> &nbsp:&nbspAdds a set of computer peripheral  <em><strong><a href="https://openmods.info/#openperipheralaio-info">Open peripherials</a></strong></em>&nbsp:&nbspConvert blocks from different mods into peripherals  `,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Pistronics 2 </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/pistronics-2/files/all?page=1&amp;pageSize=20", ICON_CURSE)}`,
+            Info: `Move and rotate tile entities using advanced modular piston and redstone`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Project Red </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/project-red-core/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `A collection of mods that aim to bring vastly improved Redstone circuitry through wiring, logic gates, integrated circuits, and more, integrates very nicely with CB Multipart, all tiles are created to behave with others in the same block space.<em><strong>Note </strong></em>: <em><strong>CBMultipart </strong></em>and <em><strong>CodeChickenLib </strong></em>are required only for 1.8+, use <em><strong>CodeChickenCore</strong></em>, <em><strong>ForgeMultipart </strong></em>and <em><strong>MrTJPCore </strong></em>for 1.7.10, some modules also require <em><strong>ForgeRelocation </strong></em>and the <em><strong>FMP-plugin</strong></em>`,
+            Addons: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/project-red-expansion/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Expansion</a></strong></em> &nbsp:&nbspMachines, frames, motors, electricity<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/project-red-exploration/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Exploration</a></strong></em> &nbsp:&nbspWorldgen, ores, tools, blocks, etc.<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/project-red-illumination/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Illumination</a></strong></em> &nbsp:&nbspDecorative redstone-controlled light<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/project-red-integration/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Integration</a></strong></em> &nbsp:&nbspRedstone logic gates that can replace very large multi-block circuits.<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/project-red-fabrication/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Fabrication</a></strong></em> &nbsp:&nbspDesign custom circuits as a single high-performance gate, requires Integration and Transmission<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/project-red-compat/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Compat</a></strong></em> &nbsp:&nbspcompatibility and integration with other mods`,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/ProjectRed">GTNH</a></strong></em> &nbsp:&nbspMerge all the modules in one, improve performance and compatibility, fix bugs and kept up to date`,
+          },
+          {
+            Name: `<em><strong>RailCraft </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/railcraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Pioneer of multibloc structures, focuses on logistics through minecart and locomotives, has boilers to produce steam and use it in ovens or dynamos`,
+            Addons: ``,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/Railcraft">GTNH</a></strong></em> &nbsp:&nbspImproved performance, bug fixes , better compatibility and integration with other mods and kept up to date`,
+          },
+          {
+            Name: `<em><strong>RF Tools </strong></em>${wrapIconWithLink("https://modrinth.com/mod/rftools/versions?g=1.7.10", ICON_MODRINTH)}`,
+            Info: `Mod containing various tools, blocks and items related to RF and technology, like crafter, builder, elevator, display etc.`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Refined relocation </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/refined-relocation/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Logistics mod that provides item storage, sorting and transport, interaction with other mods, also player teleportation and a means to allow more than six connections to a single block`,
+            Addons: ``,
+            Fork: ``,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-box mx-2"></i>Storage & Inventory</span>',
+        mods: [
+          {
+            Name: `<em><strong>Applied Energistics 2 </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `AE2 revolutionizes storage in Minecraft, adds a network-based digital storage system, where items, blocks, fluids ad even entire regions of space can be stored in a digital form, other significant features are its automatic crafting and the networking and channel system where devices connected to the same network can communicate and interact with each other`,
+            Addons: `<em><strong><a href="https://github.com/GTNewHorizons/AE2FluidCraft-Rework">AE2 FluidCraft-Rework</a></strong></em> &nbsp:&nbspManage fluid better in your system<em><strong><a href="https://github.com/GTNewHorizons/ae2stuff">AE2 stuff</a></strong></em> &nbsp:&nbspadds various bits and machines to AE2<em><strong><a href="https://github.com/GTNewHorizons/ExtraCells2">Extracells2</a></strong></em> &nbsp:&nbspfew more useful features, such as fluid storage, larger storage cards, quartz Tank etc.<em><strong><a href="https://github.com/GTNewHorizons/NotEnoughEnergistics">NotEnoughEnergistics</a></strong></em> &nbsp:&nbspreplaces the default NEI integration for the pattern terminal`,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/Applied-Energistics-2-Unofficial">GTNH</a></strong></em> &nbsp:&nbspImproved performance, bug fixes, better compatibility and integration, better functionalities and QoL improvement, better textures and GUI, and kept up to date`,
+          },
+          {
+            Name: `<em><strong>BiblioCraft </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/bibliocraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `storage and organizational mod that began as a single bookcase and has expanded to much more like shelves, tool raks etc.`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Cardboard boxes </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/sbm-cardboardboxes/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Simplistic storage for moving tiles while maintaining inventories, and settings.`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Easy storage </strong></em>${wrapIconWithLink("https://modrinth.com/mod/ezstorage/versions", ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/ezstorage/versions", ICON_MODRINTH)} ${wrapIconWithLink("https://github.com/litw-refined/ezstorage", ICON_GITHUB)}`,
+            Info: `Early game modular storage system, have storage core for access on the system, storage boxes to upgrade the capacity and even portable panel, also integrate with a lot of other mods`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Ender Storage </strong></em>${wrapIconWithLink("https://modrinth.com/mod/ender-storage/versions?g=1.7.10", ICON_MODRINTH)}`,
+            Info: `These chests link together based on matching color patterns sharing the inventory, ender pouches can be colored to access chests as well, ender tanks work the same but stores liquids`,
+            Addons: ``,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/EnderStorage">GTNH</a></strong></em> &nbsp:&nbspOptimized performace and some bug fixes, kept up to date`,
+          },
+          {
+            Name: `<em><strong>Iron backpacks </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/iron-backpacks/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `4 tiers of backpack with over 20 different modular upgrades, highly configurable`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Iron chest </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/iron-chests/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Adds chests for the various vanilla metals with different sizing`,
+            Addons: ``,
+            Fork: `<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/iron-chest-unofficial/files/all?page=1&amp;pageSize=20">GTNH</a></strong></em> &nbsp:&nbspAdd new types of chest, better integration and compatibility and it’s actively supported maintenaned`,
+          },
+          {
+            Name: `<em><strong>Jabba </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/jabba/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`,
+            Info: `Providing an affordable mass storage block, the barrels are modular and can be upgraded to provide additionnal functions or provide more storage, also provides a dolly used to move around other containers with a great mods compatibility`,
+            Addons: ``,
+            Fork: `<em><strong><a href="https://github.com/GTNewHorizons/Jabba?tab=readme-ov-file">GTNH</a></strong></em> &nbsp:&nbspNew features and QoL improvement as well as performance improvement and better integrtation and compatibility with other mods`,
+          },
+          {
+            Name: `<em><strong>Satchels </strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/satchels/files/all?page=1&amp;pageSize=20", ICON_CURSE)} ${wrapIconWithLink("https://github.com/makamys/Satchels", ICON_GITHUB)}`,
+            Info: `Adds pouches and satchels, which act as wearable inventory upgrades integrated into the inventory screen instead of being on a separate one`,
+            Addons: ``,
+            Fork: ``,
+          },
+          {
+            Name: `<em><strong>Storage Drawers </strong></em>${wrapIconWithLink("https://modrinth.com/mod/storagedrawers/versions?g=1.7.10", ICON_MODRINTH)}`,
+            Info: `Borrows ideas from Jabba and Bibliocraft, resulting in a functional storage solution that complementthose mods, adds other features such as compacting drawers and drawers controller`,
+            Addons: ``,
+            Fork: `<em><strong><a href="https://modrinth.com/mod/storage-drawers-unofficial/versions">GTNH</a></strong></em> &nbsp:&nbspMerge all the addon packs and make them configurable, adds QoL improvements as well as numerous bug fixes and duplication glitch fixes, Angelica support and is actively supported`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-hammer mx-2"></i>Tools & Weponary</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-apple-whole mx-2"></i>Food & Farming</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-broom mx-2"></i>Magic</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-trowel-bricks mx-2"></i>Building & Decoration</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-bucket mx-2"></i>Miscellaneous</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-mountain-sun mx-2"></i>Biomes & Terrain</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-gopuram mx-2"></i>Structures</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-house-user mx-2"></i>Village & Villagers</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-moon mx-2"></i>Dimension</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-hippo mx-2"></i>Mob & Creatures</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-gem mx-2"></i>Ores & Resources</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-map mx-2"></i>Map & Information</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-screwdriver mx-2"></i>Utilities & QoL</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-cogs mx-2"></i>Configuration</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-rocket mx-2"></i>Performance & Bug Fixes</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-book mx-2"></i>Lib & API</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-rotate-left mx-2"></i>Backport</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-palette mx-2"></i>Cosmetic</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+      {
+        category:
+          '<span><i class="fa-solid fa-sm fa-brush mx-2"></i>Resource pack</span>',
+        mods: [
+          {
+            Name: `<em><strong> </strong></em>${wrapIconWithLink("", ICON_CURSE)}`,
+            Info: ` `,
+            Addons: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp; `,
+            Fork: `<em><strong><a href=""> </a></strong></em>&nbsp;:&nbsp;`,
+          },
+        ],
+      },
+    ];
+  </script>
+
+  <!-- Dynamic table -->
+  <script>
+    const contentContainer = document.getElementById("content");
+    const categoryMenu = document.getElementById("categoryMenu");
+    const btn = document.getElementById("categoryMenuBtn");
+    const menu = document.getElementById("categoryMenu");
+
+    document.addEventListener("click", (e) => {
+      if (!btn.contains(e.target)) {
+        bootstrap.Dropdown.getInstance(btn)?.hide();
       }
+    });
 
-      .dropdown-item {
-        color: #f8f9fa;
-      }
+    btn.addEventListener("shown.bs.dropdown", () => {
+      btn.classList.add("active");
+    });
+    btn.addEventListener("hidden.bs.dropdown", () => {
+      btn.classList.remove("active");
+    });
 
-      .dropdown-item:hover {
-        background-color: #343a40;
-        color: #ffc107;
-      }
+    // Table width
+    const columnWidths = {
+      name: "17%",
+      info: "30%",
+      addons: "30%",
+      fork: "23%",
+    };
 
-      .table th,
-      .table td {
-        vertical-align: middle;
-        text-align: left;
-        padding: 0.75rem;
-      }
+    const filter = " ";
 
-      a {
-        text-decoration: none;
-      }
+    const filteredData = jsonData.map(categoryObj => {
+      const filteredMods = categoryObj.mods.filter(mod =>
+        mod.Name.toLowerCase().includes(filter.toLocaleLowerCase())
+      );
+      console.log(categoryObj.mods[0].Name)
 
-      @media (max-width: 768px) {
-        body {
-          padding: 1rem;
+      return filteredMods.length > 0
+        ? { ...categoryObj, mods: filteredMods }
+        : null;
+    }).filter(categoryObj => categoryObj !== null);
+    console.log(filteredData)
+
+    filteredData.forEach((entry) => {
+      const category = entry.category;
+      const mods = entry.mods;
+      const safeId = category.replace(/\s+/g, "_");
+
+      // Header
+      const header = document.createElement("h2");
+      header.id = `header-${safeId}`;
+      header.innerHTML = category;
+      contentContainer.appendChild(header);
+
+      // Table
+      const table = document.createElement("table");
+      table.className = "table table-dark table-bordered";
+      table.id = safeId;
+      table.name = safeId;
+      table.style.tableLayout = "fixed";
+      table.style.width = "100%";
+
+      const columnKeys = Object.keys(mods[0]);
+      const columnClasses = {};
+
+      // Colgrup
+      const colgroup = document.createElement("colgroup");
+      columnKeys.forEach((key) => {
+        const col = document.createElement("col");
+        const width = columnWidths[key.toLowerCase()];
+        if (width) {
+          col.style.width = width;
         }
-
-        #categoryMenuBtn {
-          right: 0.5rem;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>Mod List</h1>
-    <hr />
-
-    <!-- Menu fluttuante -->
-    <div class="dropdown">
-      <button
-        class="btn btn-warning dropdown-toggle"
-        type="button"
-        id="categoryMenuBtn"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Vai alla Categoria
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end" id="categoryMenu"></ul>
-    </div>
-
-    <!-- Contenuto generato -->
-    <div id="content" class="container-fluid"></div>
-
-    <!-- Inserimento dati direttamente nel file -->
-    <script>
-      const jsonData = [
-        {
-          category: "Tech",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Redstone & Logistic",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Storage & Inventory",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Equipment & Weponary",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Food & Farming",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Adventure & RPG",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Magic",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Building & Decoration",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Miscellaneous",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Biomes & Terrain",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Structures",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Village & Villagers",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Dimension",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Mob & Creatures",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Ores & Resources",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Map & Information",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Utilities & QoL",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Configuration",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Performance & Bug Fixes",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Lib & API",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Backport",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Cosmetic",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-        {
-          category: "Resource pack",
-          mods: [{ name: "", info: "", addons: "", fork: "" }],
-        },
-      ];
-    </script>
-
-    <!-- Generazione tabelle -->
-    <script>
-      function setDangerouslyHtml(element, html) {
-        element.innerHTML = html;
-      }
-
-      const contentContainer = document.getElementById("content");
-      const categoryMenu = document.getElementById("categoryMenu");
-
-      jsonData.forEach((entry) => {
-        const category = entry.category;
-        const mods = entry.mods;
-        const safeId = category.replace(/\s+/g, "_");
-
-        const header = document.createElement("h2");
-        setDangerouslyHtml(header, category);
-        contentContainer.appendChild(header);
-
-        const table = document.createElement("table");
-        table.className = "table table-dark table-bordered table-hover";
-        table.id = safeId;
-        table.name = safeId;
-
-        const thead = document.createElement("thead");
-        const headerRow = document.createElement("tr");
-        Object.keys(mods[0]).forEach((key) => {
-          const th = document.createElement("th");
-          setDangerouslyHtml(th, key);
-          headerRow.appendChild(th);
-        });
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-
-        const tbody = document.createElement("tbody");
-        mods.forEach((mod) => {
-          const row = document.createElement("tr");
-          Object.values(mod).forEach((value) => {
-            const td = document.createElement("td");
-            setDangerouslyHtml(td, value);
-            row.appendChild(td);
-          });
-          tbody.appendChild(row);
-        });
-        table.appendChild(tbody);
-        contentContainer.appendChild(table);
-
-        const menuItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.className = "dropdown-item";
-        setDangerouslyHtml(link, category);
-        link.addEventListener("click", () => {
-          document
-            .getElementById(safeId)
-            .scrollIntoView({ behavior: "smooth" });
-        });
-        menuItem.appendChild(link);
-        categoryMenu.appendChild(menuItem);
+        colgroup.appendChild(col);
       });
-    </script>
+      table.appendChild(colgroup);
 
-    <!-- Bootstrap JavaScript Libraries -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
+      // th
+      const thead = document.createElement("thead");
+      const headerRow = document.createElement("tr");
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      columnKeys.forEach((key, index) => {
+        const th = document.createElement("th");
+        let iconHtml = "";
+
+        switch (key.toLowerCase()) {
+          case "name":
+            iconHtml = '<i class="fa-solid fa-book-open me-2"></i> ';
+            columnClasses[index] = "name-row";
+            break;
+          case "info":
+            iconHtml = '<i class="fa-solid fa-circle-info me-2"></i> ';
+            columnClasses[index] = "info-row";
+            break;
+          case "addons":
+            iconHtml = '<i class="fa-solid fa-puzzle-piece me-2"></i> ';
+            columnClasses[index] = "addon-row";
+            break;
+          case "fork":
+            iconHtml = '<i class="fa-solid fa-code-branch me-2"></i> ';
+            columnClasses[index] = "fork-row";
+            break;
+        }
+
+        th.innerHTML = iconHtml + key;
+        headerRow.appendChild(th);
+      });
+
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      // tbody
+      const tbody = document.createElement("tbody");
+      mods.forEach((mod) => {
+        const row = document.createElement("tr");
+        Object.values(mod).forEach((value, index) => {
+          const td = document.createElement("td");
+          td.className = columnClasses[index] || "";
+          td.innerHTML = value;
+          row.appendChild(td);
+        });
+        tbody.appendChild(row);
+      });
+
+      table.appendChild(tbody);
+      contentContainer.appendChild(table);
+
+      // NavBar
+      const menuItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.className = "dropdown-item";
+      link.innerHTML = category;
+      link.addEventListener("click", () => {
+        document
+          .getElementById(`header-${safeId}`)
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      menuItem.appendChild(link);
+      categoryMenu.appendChild(menuItem);
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <!-- #endregion Script -->
+</body>
+
 </html>
