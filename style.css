@@ -44,10 +44,12 @@ td.name-row em > strong {
 }
 
 td.name-row a {
-  color: #ffffff;
+  color: #58a6ff;
 }
 
-.popover-icon{
+.github-tooltip-icon{
+  margin-top: 14px;
+  scale: 1.4;
   color: #58a6ff;
 }
 

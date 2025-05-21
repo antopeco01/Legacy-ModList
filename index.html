@@ -313,9 +313,9 @@
     <!-- Data -->
     <script>
         //Icons
-        const ICON_CURSE = `<img style="transform: scale(1.25);" class="me-2" src="https://media.forgecdn.net/avatars/130/458/636460205549127215.png" height="18" style="max-width: 100%" alt="CurseForge" />`;
-        const ICON_MODRINTH = `<img style="transform: scale(1.25);" class="me-2" src="https://camo.githubusercontent.com/90b5ec53efbbb2ea275e69de963f5bf737f16cdcc51677d83da92992486e66ae/68747470733a2f2f6d6f6472696e74682e636f6d2f66617669636f6e2e69636f" height="16" data-canonical-src="https://modrinth.com/favicon.ico" style="max-width: 100%;">`;
-        const ICON_GITHUB = `<i style="transform: scale(1.25);" class="fa-brands fa-sm fa-github me-2 popover-icon"></i>`;
+        const ICON_CURSE = `<img src="https://media.forgecdn.net/avatars/130/458/636460205549127215.png" height="22" alt="CurseForge" />`;
+        const ICON_MODRINTH = `<img src="https://camo.githubusercontent.com/90b5ec53efbbb2ea275e69de963f5bf737f16cdcc51677d83da92992486e66ae/68747470733a2f2f6d6f6472696e74682e636f6d2f66617669636f6e2e69636f" height="16" data-canonical-src="https://modrinth.com/favicon.ico" style="max-width: 100%;">`;
+        const ICON_GITHUB = `<i class="fa-brands fa-sm fa-github github-tooltip-icon popover-icon"></i>`;
 
         function wrapIconWithLink(href, iconHtml) {
             return `<a href="${href}" target="_blank" rel="noopener noreferrer">${iconHtml}</a>`;
@@ -417,7 +417,7 @@
                         Fork: [],
                     },
                     {
-                        Name: [`<em><strong><a href="" onclick="event.preventDefault()" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH)} ${wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)}'>Open Computers</a></strong></em>`],
+                        Name: [`<em><strong><a href="#" onclick="event.preventDefault()" title="Link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex gap-3">${wrapIconWithLink('https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH)} ${wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)}</span>'>Open Computers</a></strong></em>`],
                         Info: [`Adds fully persistent and programmable computer and robots that use Lua, designed to fit well in survival gamplay with features like enrgy and complex recipes, unlike ComputerCraft`],
                         Addons: [`<em><strong><a href="https://wiki.vexatos.com/wiki:computronics">Computronics</a></strong></em> &nbsp:&nbspAdds a set of computer peripheral  `, `<em><strong><a href="https://openmods.info/#openperipheralaio-info">Open peripherials</a></strong></em>&nbsp:&nbspConvert blocks from different mods into peripherals  `],
                         Fork: [],

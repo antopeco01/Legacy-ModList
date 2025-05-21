@@ -282,12 +282,14 @@ jsonData.forEach((entry) => {
             let id = null;
             let title = "";
             const match = entry.match(
-              /<em>\s*<strong>(<a[^>]*>(.*?)<\/a>|(.*?))<\/strong>\s*<\/em>/
+              /<em>\s*<strong>\s*<a[^>]*>(.*?)<\/a>\s*<\/strong>\s*<\/em>/
             );
 
             if (match) {
-              id = match[2] || match[3];
               title = match[0];
+              const container = document.createElement("div");
+              container.innerHTML = title;
+              id = container.querySelector("a")?.textContent?.trim() ?? null;
             }
             if (!id || !title) return `${entry}`;
 
@@ -416,12 +418,6 @@ document.addEventListener("DOMContentLoaded", function () {
     headIcon.style.color = "#ffffff";
   });
 
-  document
-    .querySelectorAll('td[class^="name-row"] em > strong')
-    .forEach((em) => {
-      em.classList.add("me-3");
-    });
-
   document.querySelectorAll(".animated-icon").forEach((el) => {
     el.addEventListener("mouseenter", () => {
       el.classList.remove("scale-down");
@@ -446,7 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
           el.classList.add("scale-down");
           el.classList.remove("scale-up-icon");
         });
-      } else {
+      } else if (!el.closest("span")) {
         el.addEventListener("mouseenter", () => {
           el.classList.remove("scale-down");
           el.classList.add("scale-up");
