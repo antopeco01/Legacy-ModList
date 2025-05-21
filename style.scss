@@ -1,0 +1,242 @@
+// Variabili colori
+$font-family-base: "Titillium Web", sans-serif;
+$color-bg-primary: #0d1117;
+$color-bg-secondary: #161b22;
+$color-bg-dropdown: #30363d;
+$color-bg-nav: #21262def;
+$color-text-title: #ffffff;
+$color-text-primary: #58a6ff;
+$color-text-secondary: #448361;
+$color-text-tertiary: #cb912f;
+$color-placeholder: #f6f0fc99;
+$color-border-light: #f6f0fc;
+$color-search-bg: #01040999;
+
+//#region Bootstrap
+.popover{
+    --bs-popover-bg: #161b22;
+    --bs-popover-header-bg: #30363d;
+    --bs-popover-border-color: #f6f0fc;
+    --bs-popover-arrow-height : 7px;
+    --bs-popover-header-padding-x: 3rem;
+}
+
+.popover i:hover{
+    transform: scale(1.55);
+}
+
+.popover img:hover{
+    transform: scale(1.5);
+}
+
+.popover-icon{
+    transition: transform 0.3s ease;
+}
+
+//#endregion Bootstrap
+
+body {
+  font-family: $font-family-base;
+  background-color: $color-bg-primary;
+  color: $color-text-title;
+}
+
+#content {
+  h2 {
+    font-family: $font-family-base !important;
+    font-weight: 600 !important;
+    color: $color-text-title !important;
+    -webkit-text-stroke: 0 !important;
+  }
+}
+
+.description {
+  h2 {
+    color: $color-text-primary;
+  }
+  a {
+    color: $color-text-title;
+  }
+  p > em > strong {
+    text-decoration: underline;
+  }
+}
+
+th {
+  background-color: $color-bg-secondary !important;
+  color: $color-text-title;
+}
+
+td {
+  background-color: $color-bg-primary !important;
+}
+
+.table {
+  th,
+  td {
+    vertical-align: top;
+    text-align: left;
+    padding: 0.75rem;
+  }
+}
+
+td {
+  &.name-row {
+    em > strong,
+    a {
+      color: $color-text-primary;
+    }
+  }
+  &.info-row {
+    em > strong {
+      color: $color-text-primary;
+    }
+  }
+  &.addon-row {
+    em > strong > a {
+      color: $color-text-secondary;
+    }
+  }
+  &.fork-row {
+    em > strong > a {
+      color: $color-text-tertiary;
+    }
+  }
+}
+
+.github-tooltip-icon {
+  margin-top: 13px;
+  scale: 1.4;
+  color: $color-text-title;
+}
+
+#searchBar {
+  border: 1px solid $color-border-light;
+  border-radius: 3rem;
+  background-color: $color-search-bg;
+
+  &:hover {
+    border: 1px solid $color-text-primary;
+    box-shadow: $color-border-light;
+  }
+}
+
+.focusBar {
+  border: 1px solid $color-text-primary !important;
+  box-shadow: $color-border-light !important;
+}
+
+#searchInput {
+  background-color: transparent;
+  color: $color-border-light;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.search-highlight {
+  text-shadow: 
+    0 0 1px $color-border-light, 
+    0 0 3px $color-border-light, 
+    0 0 5px $color-border-light,
+    0 0 7px $color-border-light, 
+    0 0 10px $color-border-light, 
+    0 0 12px $color-border-light, 
+    0 0 15px $color-border-light;
+  transition: text-shadow 0.5s ease;
+}
+
+.search-highlight-out {
+  text-shadow: 0 0 0 transparent;
+  transition: text-shadow 0.5s ease;
+}
+
+.form-control {
+  &::placeholder {
+    color: $color-placeholder;
+    opacity: 1;
+  }
+}
+
+input:not(:placeholder-shown) + label {
+  display: none;
+}
+
+.customBtn {
+  color: $color-border-light;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+
+  &:hover i {
+    color: $color-text-primary;
+  }
+}
+
+.scaled,
+.scale-up,
+.scale-down,
+.scale-up-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.scaled {
+  transform: scale(1.25);
+  transition-duration: 0.2s;
+}
+
+.scale-up {
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+.scale-down {
+  transform: scale(1);
+}
+
+.scale-up-icon {
+  transform: scale(1.3);
+}
+
+#categoryMenuBtn {
+  z-index: 1050;
+  background-color: $color-bg-nav;
+  border: 2px solid $color-text-title;
+  color: $color-text-title;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &.active {
+    border: 2px solid $color-text-primary;
+  }
+}
+
+.dropdown-menu {
+  background-color: $color-bg-nav;
+  border: 1px solid $color-bg-dropdown;
+}
+
+.dropdown-item {
+  color: $color-text-title;
+
+  &:hover {
+    background-color: $color-bg-dropdown;
+    color: $color-text-primary;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  #categoryMenuBtn {
+    right: 0.5rem;
+  }
+}

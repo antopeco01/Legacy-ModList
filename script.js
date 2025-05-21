@@ -18,7 +18,6 @@ document.querySelectorAll(".customBtn").forEach((button) => {
 
 input.addEventListener("mouseenter", () => {
   label.classList.add("fa-bounce");
-
   setTimeout(() => {
     label.classList.remove("fa-bounce");
   }, 1000);
@@ -35,7 +34,6 @@ input.addEventListener("input", () => {
 deleteBtn.addEventListener("click", () => {
   input.value = "";
   label.style.display = "block";
-
   updateResults();
 });
 
@@ -51,11 +49,6 @@ let matches = [];
 let currentIndex = -1;
 
 function highlightElement(el) {
-  document.querySelectorAll(".search-highlight-out").forEach((e) => {
-    e.classList.remove("search-highlight-out");
-    e.classList.remove("scale-down");
-    e.style.outline = "";
-  });
   if (el) {
     const observer = new IntersectionObserver(
       (entries, observer) => {
@@ -68,6 +61,10 @@ function highlightElement(el) {
             el.classList.add("scale-down");
             el.classList.remove("search-highlight");
             el.classList.add("search-highlight-out");
+            setTimeout(() => {
+              el.classList.remove("search-highlight-out");
+              el.classList.remove("scale-down");
+            }, 500);
           }, 500);
           el.style.outline = "";
           observer.disconnect();
@@ -115,7 +112,6 @@ function updateCounter() {
         }, 200);
       });
     });
-
     updateCounter();
   } else {
     spans = counter.querySelectorAll("span");
@@ -312,6 +308,7 @@ jsonData.forEach((entry) => {
 
   table.appendChild(tbody);
   contentContainer.appendChild(table);
+
   const tableFooter = document.createElement("div");
   tableFooter.innerHTML = `<div class="d-flex" style="margin-bottom: 4.5rem;">
           <div style="width: 17%;vertical-align: top; text-align: left; padding: 0.75rem;">
@@ -420,12 +417,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelectorAll(".animated-icon").forEach((el) => {
     el.addEventListener("mouseenter", () => {
-      el.classList.remove("scale-down");
       el.classList.add("scale-up-icon");
     });
     el.addEventListener("mouseleave", () => {
       el.classList.add("scale-down");
       el.classList.remove("scale-up-icon");
+      setTimeout(() => {
+        el.classList.remove("scale-down");
+      }, 1000);
     });
   });
 
@@ -435,21 +434,25 @@ document.addEventListener("DOMContentLoaded", function () {
       const isIcon = el.querySelector("i, img");
       if (isIcon) {
         el.addEventListener("mouseenter", () => {
-          el.classList.remove("scale-down");
           el.classList.add("scale-up-icon");
         });
         el.addEventListener("mouseleave", () => {
           el.classList.add("scale-down");
           el.classList.remove("scale-up-icon");
+          setTimeout(() => {
+            el.classList.remove("scale-down");
+          }, 1000);
         });
       } else if (!el.closest("span")) {
         el.addEventListener("mouseenter", () => {
-          el.classList.remove("scale-down");
           el.classList.add("scale-up");
         });
         el.addEventListener("mouseleave", () => {
           el.classList.add("scale-down");
           el.classList.remove("scale-up");
+          setTimeout(() => {
+            el.classList.remove("scale-down");
+          }, 1000);
         });
       }
     });
