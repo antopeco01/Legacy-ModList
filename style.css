@@ -43,7 +43,7 @@ td.name-row em > strong {
   color: #58a6ff;
 }
 
-td.name-row a {
+td.name-row a>i {
   color: #ffffff;
 }
 
