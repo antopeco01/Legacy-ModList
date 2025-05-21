@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -315,7 +315,7 @@
         //Icons
         const ICON_CURSE = `<img style="transform: scale(1.25);" class="me-2" src="https://media.forgecdn.net/avatars/130/458/636460205549127215.png" height="18" style="max-width: 100%" alt="CurseForge" />`;
         const ICON_MODRINTH = `<img style="transform: scale(1.25);" class="me-2" src="https://camo.githubusercontent.com/90b5ec53efbbb2ea275e69de963f5bf737f16cdcc51677d83da92992486e66ae/68747470733a2f2f6d6f6472696e74682e636f6d2f66617669636f6e2e69636f" height="16" data-canonical-src="https://modrinth.com/favicon.ico" style="max-width: 100%;">`;
-        const ICON_GITHUB = `<i style="transform: scale(1.25);" class="fa-brands fa-sm fa-github me-2"></i>`;
+        const ICON_GITHUB = `<i style="transform: scale(1.25);" class="fa-brands fa-sm fa-github me-2 popover-icon"></i>`;
 
         function wrapIconWithLink(href, iconHtml) {
             return `<a href="${href}" target="_blank" rel="noopener noreferrer">${iconHtml}</a>`;
@@ -333,7 +333,7 @@
                         Fork: [],
                     },
                     {
-                        Name: [`<em><strong>Big Reactors</strong></em> ${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/big-reactors/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`],
+                        Name: [`<em><strong>Big Reactors</strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/big-reactors/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}`],
                         Info: [`Energy production mod based on building nuclear reactors and turbines`],
                         Addons: [],
                         Fork: [],
@@ -763,7 +763,7 @@
         ];
     </script>
 
-    <script src="script.js"></script>    
+    <script src="script.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -773,7 +773,7 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <!-- #endregion Script -->
-     
+
 </body>
 
 </html>

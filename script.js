@@ -417,7 +417,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document
-    .querySelectorAll('td[class^="name-row"]> span > em')
+    .querySelectorAll('td[class^="name-row"] em > strong')
     .forEach((em) => {
       em.classList.add("me-3");
     });
