@@ -417,7 +417,7 @@
                         Fork: [],
                     },
                     {
-                        Name: [`<em><strong>Open Computers</strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)}</strong></em> ${wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH)} ${wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)}`],
+                        Name: [`<em><strong><a href="" onclick="event.preventDefault()" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH)} ${wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)}'>Open Computers</a></strong></em>`],
                         Info: [`Adds fully persistent and programmable computer and robots that use Lua, designed to fit well in survival gamplay with features like enrgy and complex recipes, unlike ComputerCraft`],
                         Addons: [`<em><strong><a href="https://wiki.vexatos.com/wiki:computronics">Computronics</a></strong></em> &nbsp:&nbspAdds a set of computer peripheral  `, `<em><strong><a href="https://openmods.info/#openperipheralaio-info">Open peripherials</a></strong></em>&nbsp:&nbspConvert blocks from different mods into peripherals  `],
                         Fork: [],
@@ -772,6 +772,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
     <!-- #endregion Script -->
 
 </body>
