@@ -160,7 +160,6 @@ input.addEventListener("input", updateResults);
 const contentContainer = document.getElementById("content");
 const categoryMenu = document.getElementById("categoryMenu");
 const btn = document.getElementById("categoryMenuBtn");
-const menu = document.getElementById("categoryMenu");
 
 document.addEventListener("click", (e) => {
   if (!btn.contains(e.target)) {
@@ -270,37 +269,33 @@ jsonData.forEach((entry) => {
       contents[index] += value.length;
       const td = document.createElement("td");
       td.className = columnClasses[index] || "";
-      if (td.className == "info-row") {
-        td.innerHTML = value;
-      } else {
-        td.innerHTML = value
-          .map((entry) => {
-            let id = null;
-            let title = "";
-            const match = entry.match(
-              /<em>\s*<strong>\s*<a[^>]*>(.*?)<\/a>\s*<\/strong>\s*<\/em>/
-            );
+      td.innerHTML = value
+        .map((entry) => {
+          let id = null;
+          let title = "";
+          const match = entry.match(
+            /<em>\s*<strong>\s*<a[^>]*>(.*?)<\/a>\s*<\/strong>\s*<\/em>/
+          );
 
-            if (match) {
-              title = match[0];
-              const container = document.createElement("div");
-              container.innerHTML = title;
-              id = container.querySelector("a")?.textContent?.trim() ?? null;
-            }
-            if (!id || !title) return `${entry}`;
+          if (match) {
+            title = match[0];
+            const container = document.createElement("div");
+            container.innerHTML = title;
+            id = container.querySelector("a")?.textContent?.trim() ?? null;
+          }
+          if (!id || !title) return `${entry}`;
 
-            const normalizedID = `ref-${id
-              .toLowerCase()
-              .replace(/\s+/g, "")
-              .replace(/[^a-z0-9\-_]/g, "")}`;
-            const contentSpan = `<span>${entry
-              .replace(title, "")
-              .trim()}</span>`;
-            const titleSpan = `<span id="${normalizedID}">${title}${contentSpan}</span>`;
-            return `${titleSpan}`;
-          })
-          .join("<br/>");
-      }
+          const normalizedID = `ref-${id
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[^a-z0-9\-_]/g, "")}`;
+
+          return `<span id="${normalizedID}">${title}${`<span>${entry
+            .replace(title, "")
+            .trim()}</span>`}</span>`;
+        })
+        .join("<br/>");
+
       row.appendChild(td);
     });
     tbody.appendChild(row);
@@ -326,6 +321,7 @@ jsonData.forEach((entry) => {
             Forks : ${contents[3]}
           </div>
         </div>`;
+
   contentContainer.appendChild(tableFooter);
   totalContents = totalContents.map((val, i) => val + contents[i]);
 
@@ -367,6 +363,7 @@ jsonData.forEach((entry) => {
   menuItem.appendChild(link);
   categoryMenu.appendChild(menuItem);
 });
+
 document
   .getElementById("tot-content")
   .querySelector(
@@ -415,7 +412,10 @@ document.addEventListener("DOMContentLoaded", function () {
     headIcon.style.color = "#ffffff";
   });
 
-  document.getElementById('source-section').querySelectorAll('a').forEach(el=>el.classList.add('source-link'))
+  document
+    .getElementById("source-section")
+    .querySelectorAll("a")
+    .forEach((el) => el.classList.add("source-link"));
 
   document.querySelectorAll("a[href]").forEach((link) => {
     link.setAttribute("target", "_blank");

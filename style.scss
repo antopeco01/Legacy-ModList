@@ -56,9 +56,7 @@ body {
   }
   a {
     color: $color-text-title;
-  }
-  p > em > strong {
-    text-decoration: underline;
+    // text-decoration: none;
   }
 }
 
@@ -73,6 +71,7 @@ body {
 .source-link {
   display: inline-block;
   transition: transform 0.3s ease;
+  // text-decoration: none;
 }
 
 .source-link:hover {
@@ -98,6 +97,9 @@ td {
 }
 
 td {
+  // & a {
+  //   text-decoration: none;
+  // }
   &.name-row {
     em > strong,
     a {
@@ -107,6 +109,9 @@ td {
   &.info-row {
     em > strong {
       color: $color-text-primary;
+    }
+    &>strong{
+      text-decoration: underline;
     }
   }
   &.addon-row {
@@ -125,6 +130,12 @@ td {
   margin-top: 13px;
   scale: 1.4;
   color: $color-text-title;
+}
+
+.globe-tooltip-icon {
+  margin-top: 13px;
+  scale: 1.4;
+  color: $color-text-primary;
 }
 
 #searchBar {

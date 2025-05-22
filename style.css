@@ -37,9 +37,6 @@ body {
 .description a {
   color: #ffffff;
 }
-.description p > em > strong {
-  text-decoration: underline;
-}
 
 .animated-icon {
   transition: transform 0.3s ease;
@@ -81,6 +78,9 @@ td.name-row a {
 td.info-row em > strong {
   color: #58a6ff;
 }
+td.info-row > strong {
+  text-decoration: underline;
+}
 td.addon-row em > strong > a {
   color: #448361;
 }
@@ -92,6 +92,12 @@ td.fork-row em > strong > a {
   margin-top: 13px;
   scale: 1.4;
   color: #ffffff;
+}
+
+.globe-tooltip-icon {
+  margin-top: 13px;
+  scale: 1.4;
+  color: #58a6ff;
 }
 
 #searchBar {
