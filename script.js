@@ -415,47 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
     headIcon.style.color = "#ffffff";
   });
 
-  document.querySelectorAll(".animated-icon").forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      el.classList.add("scale-up-icon");
-    });
-    el.addEventListener("mouseleave", () => {
-      el.classList.add("scale-down");
-      el.classList.remove("scale-up-icon");
-      setTimeout(() => {
-        el.classList.remove("scale-down");
-      }, 1000);
-    });
-  });
-
-  Array.from(document.querySelectorAll("a"))
-    .filter((a) => a.parentElement && a.parentElement.tagName !== "LI")
-    .forEach((el) => {
-      const isIcon = el.querySelector("i, img");
-      if (isIcon) {
-        el.addEventListener("mouseenter", () => {
-          el.classList.add("scale-up-icon");
-        });
-        el.addEventListener("mouseleave", () => {
-          el.classList.add("scale-down");
-          el.classList.remove("scale-up-icon");
-          setTimeout(() => {
-            el.classList.remove("scale-down");
-          }, 1000);
-        });
-      } else if (!el.closest("span")) {
-        el.addEventListener("mouseenter", () => {
-          el.classList.add("scale-up");
-        });
-        el.addEventListener("mouseleave", () => {
-          el.classList.add("scale-down");
-          el.classList.remove("scale-up");
-          setTimeout(() => {
-            el.classList.remove("scale-down");
-          }, 1000);
-        });
-      }
-    });
+  document.getElementById('source-section').querySelectorAll('a').forEach(el=>el.classList.add('source-link'))
 
   document.querySelectorAll("a[href]").forEach((link) => {
     link.setAttribute("target", "_blank");

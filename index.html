@@ -187,7 +187,7 @@
                 </span>
             </div>
         </div>
-        <div class="row">
+        <div id="source-section" class="row">
             <div class="col">
                 <h2><em><strong><i class="fa-solid fa-sm fa-rectangle-list me-2"></i>Forums</strong></em>
                 </h2>
@@ -321,6 +321,10 @@
             return `<a href="${href}" target="_blank" rel="noopener noreferrer">${iconHtml}</a>`;
         }
 
+        function wrapLinksWithPopover(mod, icons){
+            return `<a href="#" onclick="event.preventDefault()" title="Link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex justify-content-center gap-3">${icons.join(' ')}</span>'>${mod}</a>`;
+        }
+
         const jsonData = [
             {
                 category:
@@ -339,9 +343,9 @@
                         Fork: [],
                     },
                     {
-                        Name: [`<em><strong>BuildCraft</strong></em>${wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/buildcraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/buildcraft/versions?g=1.7.10", ICON_MODRINTH)}`],
+                        Name: [`<em><strong>${wrapLinksWithPopover('BuildCraft', [wrapIconWithLink("https://www.curseforge.com/minecraft/mc-mods/buildcraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE), wrapIconWithLink("https://modrinth.com/mod/buildcraft/versions?g=1.7.10", ICON_MODRINTH)])}</strong></em>`],
                         Info: [`Tech mod covering various aspects such as logistics, automated buildings machines, energy production and others useful machine`],
-                        Addons: [`<em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/buildcraft-compat/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Compat</a></strong></em> &nbsp:&nbspAdds cross mod compatibility`, ` <em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/iron-tanks/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Iron tanks</a></strong></em> &nbsp:&nbspAdds tiered tanks`, ` <em><strong><a href="https://github.com/GTNewHorizons/LogisticsPipes">Logistic pipes</a></strong></em> &nbsp:&nbspAdds smart pipes to create advanced networks`, ` <em><strong><a href="https://github.com/GTNewHorizons/BuildCraftOilTweak">OilTweaks</a></strong></em> &nbsp:&nbspMake oil more dangerous<br/>`],
+                        Addons: [`<em><strong>${wrapLinksWithPopover('Compat', [wrapIconWithLink('https://www.curseforge.com/minecraft/mc-mods/buildcraft-compat/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE)])}</strong></em> &nbsp:&nbspAdds cross mod compatibility`, ` <em><strong><a href="https://www.curseforge.com/minecraft/mc-mods/iron-tanks/files/all?page=1&amp;pageSize=20&amp;version=1.7.10">Iron tanks</a></strong></em> &nbsp:&nbspAdds tiered tanks`, ` <em><strong><a href="https://github.com/GTNewHorizons/LogisticsPipes">Logistic pipes</a></strong></em> &nbsp:&nbspAdds smart pipes to create advanced networks`, ` <em><strong><a href="https://github.com/GTNewHorizons/BuildCraftOilTweak">OilTweaks</a></strong></em> &nbsp:&nbspMake oil more dangerous<br/>`],
                         Fork: [`<em><strong><a href="https://github.com/GTNewHorizons/BuildCraft">GTNH</a></strong></em>&nbsp:&nbspImproved performance and compatibility, fix bugs and kept up to date, add the respective forks for the addons <em><strong><a href="https://github.com/GTNewHorizons/BuildCraftCompat">Compat</a></strong></em><em> and <em><strong><a href="https://github.com/GTNewHorizons/Irontanks">Iron tanks</a></strong></em>`],
                     },
                     {
@@ -417,7 +421,7 @@
                         Fork: [],
                     },
                     {
-                        Name: [`<em><strong><a href="#" onclick="event.preventDefault()" title="Link" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex gap-3">${wrapIconWithLink('https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE)} ${wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH)} ${wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)}</span>'>Open Computers</a></strong></em>`],
+                        Name: [`<em><strong>${wrapLinksWithPopover('Open Computers', [wrapIconWithLink('https://www.curseforge.com/minecraft/mc-mods/opencomputers/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE), wrapIconWithLink("https://modrinth.com/mod/opencomputers/versions?g=1.7.10", ICON_MODRINTH), wrapIconWithLink("https://github.com/MightyPirates/OpenComputers", ICON_GITHUB)])}</strong></em>`],
                         Info: [`Adds fully persistent and programmable computer and robots that use Lua, designed to fit well in survival gamplay with features like enrgy and complex recipes, unlike ComputerCraft`],
                         Addons: [`<em><strong><a href="https://wiki.vexatos.com/wiki:computronics">Computronics</a></strong></em> &nbsp:&nbspAdds a set of computer peripheral  `, `<em><strong><a href="https://openmods.info/#openperipheralaio-info">Open peripherials</a></strong></em>&nbsp:&nbspConvert blocks from different mods into peripherals  `],
                         Fork: [],

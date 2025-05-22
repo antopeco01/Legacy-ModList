@@ -13,24 +13,24 @@ $color-border-light: #f6f0fc;
 $color-search-bg: #01040999;
 
 //#region Bootstrap
-.popover{
-    --bs-popover-bg: #161b22;
-    --bs-popover-header-bg: #30363d;
-    --bs-popover-border-color: #f6f0fc;
-    --bs-popover-arrow-height : 7px;
-    --bs-popover-header-padding-x: 3rem;
+.popover {
+  --bs-popover-bg: #161b22;
+  --bs-popover-header-bg: #30363d;
+  --bs-popover-border-color: #f6f0fc;
+  --bs-popover-arrow-height: 7px;
+  --bs-popover-header-padding-x: 3rem;
 }
 
-.popover i:hover{
-    transform: scale(1.55);
+.popover i:hover {
+  transform: scale(1.5);
 }
 
-.popover img:hover{
-    transform: scale(1.5);
+.popover img:hover {
+  transform: scale(1.5);
 }
 
-.popover-icon{
-    transition: transform 0.3s ease;
+.popover-icon {
+  transition: transform 0.3s ease;
 }
 
 //#endregion Bootstrap
@@ -60,6 +60,23 @@ body {
   p > em > strong {
     text-decoration: underline;
   }
+}
+
+.animated-icon {
+  transition: transform 0.3s ease;
+}
+
+.animated-icon:hover {
+  transform: scale(1.3);
+}
+
+.source-link {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.source-link:hover {
+  transform: scale(1.1);
 }
 
 th {
@@ -135,13 +152,9 @@ td {
 }
 
 .search-highlight {
-  text-shadow: 
-    0 0 1px $color-border-light, 
-    0 0 3px $color-border-light, 
-    0 0 5px $color-border-light,
-    0 0 7px $color-border-light, 
-    0 0 10px $color-border-light, 
-    0 0 12px $color-border-light, 
+  text-shadow: 0 0 1px $color-border-light, 0 0 3px $color-border-light,
+    0 0 5px $color-border-light, 0 0 7px $color-border-light,
+    0 0 10px $color-border-light, 0 0 12px $color-border-light,
     0 0 15px $color-border-light;
   transition: text-shadow 0.5s ease;
 }
@@ -174,8 +187,7 @@ input:not(:placeholder-shown) + label {
 
 .scaled,
 .scale-up,
-.scale-down,
-.scale-up-icon {
+.scale-down {
   display: inline-block;
   transition: transform 0.3s ease;
 }
@@ -192,10 +204,6 @@ input:not(:placeholder-shown) + label {
 
 .scale-down {
   transform: scale(1);
-}
-
-.scale-up-icon {
-  transform: scale(1.3);
 }
 
 #categoryMenuBtn {
