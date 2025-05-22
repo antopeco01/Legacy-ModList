@@ -3,7 +3,11 @@
   --bs-popover-header-bg: #30363d;
   --bs-popover-border-color: #f6f0fc;
   --bs-popover-arrow-height: 7px;
-  --bs-popover-header-padding-x: 3rem;
+}
+
+.popover-header {
+  text-align: center;
+  min-width: 100px;
 }
 
 .popover i:hover {
@@ -49,6 +53,7 @@ body {
 .source-link {
   display: inline-block;
   transition: transform 0.3s ease;
+  text-decoration: none;
 }
 
 .source-link:hover {
