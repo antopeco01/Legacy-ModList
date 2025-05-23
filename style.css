@@ -21,6 +21,14 @@
   transition: transform 0.3s ease;
 }
 
+.customTooltip {
+  max-width: 800px;
+  --bs-popover-bg: #f6f6f6;
+}
+.customTooltip .popover-body {
+  color: #161b22;
+}
+
 body {
   font-family: "Titillium Web", sans-serif;
   background-color: #0d1117;

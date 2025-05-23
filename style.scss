@@ -36,6 +36,14 @@ $color-search-bg: #01040999;
   transition: transform 0.3s ease;
 }
 
+.customTooltip {
+  max-width: 800px;
+  --bs-popover-bg: #f6f6f6;
+  & .popover-body{
+    color: #161b22;
+  }
+}
+
 //#endregion Bootstrap
 
 body {
@@ -86,13 +94,13 @@ body {
   min-width: 1200px;
 }
 
-.table-responsive{
+.table-responsive {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
 .table-responsive::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 th {
@@ -263,7 +271,7 @@ input:not(:placeholder-shown) + label {
 }
 
 .dropdown-menu::-webkit-scrollbar {
-  display: none; 
+  display: none;
 }
 
 .dropdown-item {
@@ -276,11 +284,11 @@ input:not(:placeholder-shown) + label {
 }
 
 @media (max-width: 768px) {
-  .dropdown{
+  .dropdown {
     padding-left: 32px;
     padding-right: 32px !important;
   }
-  #searchBar{
+  #searchBar {
     display: none !important;
   }
 }

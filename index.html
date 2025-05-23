@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <div class="dropdown" style="position: fixed; top: 32px; right: 0px; padding-right: 48px;">
         <div class="d-flex justify-content-between align-items-center">
-            <div id="searchBar" class="d-flex justify-content-between align-items-center px-3 me-3" >
+            <div id="searchBar" class="d-flex justify-content-between align-items-center px-3 me-3">
                 <div id="navigator" class="d-flex justify-content-between align-items-center">
                 </div>
                 <label for="searchInput" id="searchLabel"><i class="fas fa-search"
@@ -332,10 +332,14 @@
             return `<em><strong><a href="#" onclick="event.preventDefault()" title="Links" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex justify-content-center gap-3">${icons.join(' ')}</span>'>${mod}</a></strong></em>`;
         }
 
+        function Tooltip(category, description){
+            return `<span class="Tooltip" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content='${description}'>${category}</span>`
+        }
+
         const jsonData = [
             {
                 category:
-                    '<span><i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech</span>',
+                    Tooltip('<i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech', 'All the material found here is the result of thorough research and comes from many reliable sources, including major modded Minecraft forums, GitHub profiles of mod developers, articles and lists created by the community, and a detailed analysis of the most popular and widely played modpacks for this version, including those released at launch as well as those introduced in the years since and still actively maintained today. Please keep in mind that, despite the many hours spent creating this list, some mods, even quite well known ones, might be missing. The goal is to keep the list updated with new releases and community suggestions, while maintaining the same level of detail and information to ensure it remains as usable as possible.'),
                 mods: [
                     {
                         Name: [`${Popover('Advanced Generators', [Links("https://www.curseforge.com/minecraft/mc-mods/advanced-generators/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)])}`],
@@ -789,10 +793,21 @@
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
         })
+
         var TriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var List = TriggerList.map(function (TriggerEl) {
             return new bootstrap.Popover(TriggerEl)
         })
+
+        const tooltipElements = document.querySelectorAll('.Tooltip');
+        tooltipElements.forEach(el => {
+            new bootstrap.Popover(el, {
+                trigger: 'hover',           
+                html: true,
+                container: 'body',
+                customClass: 'customTooltip'      
+            });
+        });
     </script>
     <!-- #endregion Script -->
 
