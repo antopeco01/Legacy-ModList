@@ -66,7 +66,6 @@ function highlightElement(el) {
               el.classList.remove("scale-down");
             }, 500);
           }, 500);
-          el.style.outline = "";
           observer.disconnect();
         }
       },
@@ -201,16 +200,15 @@ jsonData.forEach((entry) => {
   header.id = `header-${safeId}`;
   header.classList.add("fa");
   header.classList.add("mb-3");
+  header.style.marginTop = "4.5rem";
   header.innerHTML = category;
   contentContainer.appendChild(header);
 
   // Table
   const table = document.createElement("table");
-  table.className = "table table-dark table-bordered mb-0";
+  table.className = "table table-dark table-bordered mb-0 custom-table";
   table.id = safeId;
   table.name = safeId;
-  table.style.tableLayout = "fixed";
-  table.style.width = "100%";
 
   const columnKeys = Object.keys(mods[0]);
   const columnClasses = {};
@@ -300,12 +298,11 @@ jsonData.forEach((entry) => {
     });
     tbody.appendChild(row);
   });
-
   table.appendChild(tbody);
-  contentContainer.appendChild(table);
 
-  const tableFooter = document.createElement("div");
-  tableFooter.innerHTML = `<div class="d-flex" style="margin-bottom: 4.5rem;">
+  const tableFooter = document.createElement("caption");
+  tableFooter.style.color = "#ffffff";
+  tableFooter.innerHTML = `<div class="d-flex">
           <div style="width: 17%;vertical-align: top; text-align: left; padding: 0.75rem;">
             Content : ${contents.reduce((acc, val) => {
               return acc + val;
@@ -321,8 +318,14 @@ jsonData.forEach((entry) => {
             Forks : ${contents[3]}
           </div>
         </div>`;
+  table.appendChild(tableFooter);
 
-  contentContainer.appendChild(tableFooter);
+  const tableResponsive = document.createElement("div");
+  tableResponsive.classList.add("table-responsive");
+  tableResponsive.appendChild(table);
+
+  contentContainer.appendChild(tableResponsive);
+
   totalContents = totalContents.map((val, i) => val + contents[i]);
 
   // NavBar
@@ -378,7 +381,7 @@ document
   .getElementById("tot-mod")
   .querySelector(
     "span"
-  ).innerHTML = `<i class="fa-brands fa-java fa-3x me-2"></i>Total number of Mod : ${totalContents[1]}`;
+  ).innerHTML = `<i class="fa-brands fa-java fa-3x me-2" style="text-shadow: 0 0 1px currentColor, 0 0 1px currentColor, 0 0 1px currentColor;"></i>Total number of Mod : ${totalContents[1]}`;
 document
   .getElementById("tot-addon")
   .querySelector(
@@ -398,6 +401,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   head.querySelector("a").addEventListener("click", () => {
     const el = document.getElementById("head");
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  document.getElementById("source-shortcut").addEventListener("click", () => {
+    const el = document.getElementById("source-section");
     el.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 

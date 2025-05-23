@@ -16,9 +16,9 @@
 <body>
 
     <!-- Navbar -->
-    <div class="dropdown" style="position: fixed; top: 32px; right: 48px;">
+    <div class="dropdown" style="position: fixed; top: 32px; right: 0px; padding-right: 48px;">
         <div class="d-flex justify-content-between align-items-center">
-            <div id="searchBar" class="d-flex justify-content-between align-items-center px-3 me-3">
+            <div id="searchBar" class="d-flex justify-content-between align-items-center px-3 me-3" >
                 <div id="navigator" class="d-flex justify-content-between align-items-center">
                 </div>
                 <label for="searchInput" id="searchLabel"><i class="fas fa-search"
@@ -37,15 +37,15 @@
     </div>
 
     <!-- Title Bar -->
-    <div id="head" class="px-5 mb-5 d-flex justify-content-start align-items-center"
+    <div id="head" class="mb-5 d-flex justify-content-start align-items-center"
         style=" border-bottom: 1.5px solid #f6f0fc; background-color: #010409;">
-        <h1 class="mb-0" style="font-weight: 700; color: #ffffff; padding-top: 32px; padding-bottom: 32px;"> The
+        <h1 class="mb-0 px-5" style="font-weight: 700; color: #ffffff; padding-top: 32px; padding-bottom: 32px;"> The
             Minecraft
             Legacy Modlist (1.7.10) </h1>
     </div>
 
     <!-- Description -->
-    <div class="px-5 description" style="margin-bottom: 4.5rem;">
+    <div class="px-5 description">
         <div>
             <p>
                 This list was created to provide all modded Minecraft
@@ -126,11 +126,12 @@
                 adapt them for their own
                 modpack, which may involve changes to recipes and mechanics, consult their repositories and refer to
                 this
-                <em><span><strong><a style="color:#58a6ff"
-                                href="https://docs.google.com/spreadsheets/u/0/d/1LHd8c4FLLHiJqsuTppF2XFTE6bh-mXE7afVwGbzOKms/htmlview?pli=1">list</a></strong></span></em>
+                <em><strong><a style="color:#58a6ff"
+                            href="https://docs.google.com/spreadsheets/u/0/d/1LHd8c4FLLHiJqsuTppF2XFTE6bh-mXE7afVwGbzOKms/htmlview?pli=1">list</a></strong></em>
                 for more informations.
                 <br />
-                <em><strong><span>Note</span></strong></em>&nbsp;:&nbsp; Forks of mods
+                <em><strong><span style="text-decoration: underline;">Note</span></strong></em>&nbsp;:&nbsp; Forks of
+                mods
                 that depend on library mods or APIs often require forked versions of those libraries as well <span
                     style="color: #58a6ff;">( </span>e.g., <em><strong>NEI - GTNH</strong></em> requires
                 <em><strong>CodeChickenCore - GTNH</strong></em><span style="color: #58a6ff;"> )</span>.
@@ -140,7 +141,9 @@
             <br />
             <p>
                 All the material found here is the result of thorough
-                research and has been sourced from various places, including major modded Minecraft forums, GitHub
+                research and comes from many reliable <em><strong><a id="source-shortcut" href=""
+                            onclick="event.preventDefault()" style="color:#58a6ff">sources</a></strong></em>, including
+                major modded Minecraft forums, GitHub
                 profiles of mod developers, articles and lists created by the community, and a detailed analysis of the
                 most popular and widely played modpacks for this version, including those released at launch as well as
                 those introduced in the years since and still actively maintained today. Please keep in mind that,
@@ -155,13 +158,13 @@
 
     <!-- Tables Container -->
     <div id="content" class="container-fluid px-5"></div>
-    <div class="px-4">
+    <div class="px-4" style="margin-top: 4.5rem;">
         <hr style="color : #f6f0fc;">
     </div>
 
     <!--Footer-->
     <div class=" description" style=" padding: 5rem;">
-        <div class="row" style="margin-bottom: 8rem;">
+        <div class="row">
             <div id="go-to-head" class="col-12 text-end">
                 <a href="" onclick="event.preventDefault()">
                     <i class="fas fa-2x fa-turn-up"></i>
@@ -170,24 +173,26 @@
             <div class="col-12 mb-3">
                 <h1><em><strong>Content Summary</strong></em></h1>
             </div>
-            <div id="tot-content" class="col d-flex align-items-center">
-                <span class="animated-icon">
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gy-5" style="margin-bottom: 8rem;">
+            <div id="tot-content" class="col-md-3 d-flex align-items-center">
+                <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
-            <div id="tot-mod" class="col d-flex align-items-baseline">
-                <span class="animated-icon">
+            <div id="tot-mod" class="col-md-3 d-flex align-items-baseline">
+                <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
-            <div id="tot-addon" class="col d-flex align-items-center">
-                <span class="animated-icon">
+            <div id="tot-addon" class="col-md-3 d-flex align-items-center">
+                <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
-            <div id="tot-fork" class="col d-flex align-items-center">
-                <span class="animated-icon">
+            <div id="tot-fork" class="col-md-3 d-flex align-items-center">
+                <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
         </div>
-        <div id="source-section" class="row">
+        <div id="source-section" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gy-5">
             <div class="col">
                 <h2><em><strong><i class="fa-solid fa-sm fa-rectangle-list me-2"></i>Forums</strong></em>
                 </h2>
@@ -468,7 +473,7 @@
                         Name: [`${Popover('Applied Energistics 2', [Links('https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE)])}`],
                         Info: [`AE2 revolutionizes storage in Minecraft by introducing a network-based digital storage system, where items, blocks, fluids, and even entire spatial regions can be stored in digital form. Key features include automatic crafting, as well as a powerful networking and channel system that allows connected devices to communicate with each others`],
                         Addons: [`${Popover('AE2 FluidCrafting-Rework', [Links('https://www.curseforge.com/minecraft/mc-mods/ae2-fluid-crafting-rework/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE), Links('https://modrinth.com/mod/ae2-fluid-crafting/versions?g=1.7.10', ICON_MODRINTH)])} &nbsp:&nbspManage fluid better in your system`, `${Popover('AE2 Stuff', [Links('https://www.curseforge.com/minecraft/mc-mods/ae2-stuff/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbspadds various bits and machines to AE2`, `${Popover('ExtraCells 2', [Links('https://github.com/GTNewHorizons/ExtraCells2', ICON_GITHUB)])} &nbsp:&nbspfew more useful features, such as fluid storage, larger storage cards, quartz Tank etc.`, `${Popover('Not Enough Energistics', [Links('https://www.curseforge.com/minecraft/mc-mods/not-enough-energistics/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbspreplaces the default NEI integration for the pattern terminal`],
-                        Fork: [`${Popover('AE2 - GTNH', [Links('https://github.com/GTNewHorizons/Applied-Energistics-2-Unofficial', ICON_GITHUB)])} &nbsp:&nbspAn up to date version of the mod with better compatibility, bug fixes, and performance improvements, better functionalities, QoL improvement, better textures and GUI`, `${Popover('AE2 FluidCrafting-Rework - GTNH', [Links('https://github.com/GTNewHorizons/AE2FluidCraft-Rework', ICON_GITHUB)])}`,`${Popover('AE2 Stuff - GTNH', [Links('https://github.com/GTNewHorizons/ae2stuff', ICON_GITHUB)])}`, `${Popover('Not Enough Energistics - GTNH', [Links('https://github.com/GTNewHorizons/NotEnoughEnergistics', ICON_GITHUB)])}`],
+                        Fork: [`${Popover('AE2 - GTNH', [Links('https://github.com/GTNewHorizons/Applied-Energistics-2-Unofficial', ICON_GITHUB)])} &nbsp:&nbspAn up to date version of the mod with better compatibility, bug fixes, and performance improvements, better functionalities, QoL improvement, better textures and GUI`, `${Popover('AE2 FluidCrafting-Rework - GTNH', [Links('https://github.com/GTNewHorizons/AE2FluidCraft-Rework', ICON_GITHUB)])}`, `${Popover('AE2 Stuff - GTNH', [Links('https://github.com/GTNewHorizons/ae2stuff', ICON_GITHUB)])}`, `${Popover('Not Enough Energistics - GTNH', [Links('https://github.com/GTNewHorizons/NotEnoughEnergistics', ICON_GITHUB)])}`],
                     },
                     {
                         Name: [`${Popover('BiblioCraft', [Links('https://www.curseforge.com/minecraft/mc-mods/bibliocraft/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE)])}`],

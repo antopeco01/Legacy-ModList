@@ -1,8 +1,7 @@
 .popover {
-  --bs-popover-bg: #161b22;
-  --bs-popover-header-bg: #30363d;
-  --bs-popover-border-color: #f6f0fc;
-  --bs-popover-arrow-height: 7px;
+  --bs-popover-border-color: #ffffff;
+  --bs-popover-header-bg: #161b22;
+  --bs-popover-bg: #ffffff;
 }
 
 .popover-header {
@@ -54,10 +53,25 @@ body {
   display: inline-block;
   transition: transform 0.3s ease;
   text-decoration: none;
+  margin-bottom: 2px;
 }
 
 .source-link:hover {
   transform: scale(1.1);
+}
+
+.custom-table {
+  table-layout: fixed;
+  min-width: 1200px;
+}
+
+.table-responsive {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.table-responsive::-webkit-scrollbar {
+  display: none;
 }
 
 th {
@@ -96,7 +110,7 @@ td.fork-row em > strong > a {
 .github-tooltip-icon {
   margin-top: 13px;
   scale: 1.4;
-  color: #ffffff;
+  color: #58a6ff;
 }
 
 .globe-tooltip-icon {
@@ -197,6 +211,14 @@ input:not(:placeholder-shown) + label {
 .dropdown-menu {
   background-color: rgba(33, 38, 45, 0.937254902);
   border: 1px solid #30363d;
+  max-height: 510px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  display: none;
 }
 
 .dropdown-item {
@@ -208,11 +230,12 @@ input:not(:placeholder-shown) + label {
 }
 
 @media (max-width: 768px) {
-  body {
-    padding: 1rem;
+  .dropdown {
+    padding-left: 32px;
+    padding-right: 32px !important;
   }
-  #categoryMenuBtn {
-    right: 0.5rem;
+  #searchBar {
+    display: none !important;
   }
 }
 
