@@ -4,17 +4,7 @@ const label = document.getElementById("searchLabel");
 const searchBar = document.getElementById("searchBar");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
-const deleteBtn = document.getElementById("delete");
 const navigator = document.getElementById("navigator");
-
-document.querySelectorAll(".customBtn").forEach((button) => {
-  button.addEventListener("click", () => {
-    button.classList.add("scaled");
-    setTimeout(() => {
-      button.classList.remove("scaled");
-    }, 200);
-  });
-});
 
 input.addEventListener("mouseenter", () => {
   label.classList.add("fa-bounce");
@@ -29,12 +19,6 @@ input.addEventListener("input", () => {
   } else {
     label.style.display = "block";
   }
-});
-
-deleteBtn.addEventListener("click", () => {
-  input.value = "";
-  label.style.display = "block";
-  updateResults();
 });
 
 input.addEventListener("focus", () => {
@@ -103,6 +87,16 @@ function updateCounter() {
       updateCounter();
     });
 
+    const deleteBtn = document.createElement("span");
+    deleteBtn.innerHTML =
+      '<button class="customBtn btn btn-sm" id="delete"><i class="fas fa-xmark"></i></button>';
+    deleteBtn.addEventListener("click", () => {
+      input.value = "";
+      label.style.display = "block";
+      updateResults();
+    });
+    searchBar.appendChild(deleteBtn);
+
     document.querySelectorAll(".customBtn").forEach((button) => {
       button.addEventListener("click", () => {
         button.classList.add("scaled");
@@ -111,6 +105,7 @@ function updateCounter() {
         }, 200);
       });
     });
+
     updateCounter();
   } else {
     spans = counter.querySelectorAll("span");
@@ -138,6 +133,10 @@ function updateResults() {
   } else {
     while (navigator.firstChild) {
       navigator.removeChild(navigator.firstChild);
+    }
+    const element = document.getElementById("delete");
+    if (element) {
+      element.remove();
     }
     highlightElement(null);
     return;

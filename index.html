@@ -24,7 +24,6 @@
                 <label for="searchInput" id="searchLabel"><i class="fas fa-search"
                         style="color: #f6f0fc99;"></i></label>
                 <input type="text" class="form-control me-2" placeholder="Find Content..." id="searchInput" />
-                <button class="customBtn btn btn-sm" id="delete"><i class="fas fa-xmark"></i></button>
             </div>
             <div>
                 <button class="btn" type="button" id="categoryMenuBtn" data-bs-toggle="dropdown" aria-expanded="false"
@@ -56,7 +55,7 @@
             </p>
             <br />
             <p>
-                The list is divided into categories and is easy to navigate thanks to the Search bar and the Menu button
+                The list is divided into categories and is easy to navigate thanks to the Navbar
                 in the
                 top right corner, for each category there is a table showing the mods that fall under it, divided into
                 four
@@ -75,9 +74,9 @@
                     style="color: #58a6ff;">(
                 </span>unofficial releases, along with a description of how it differs from the official one.<span
                     style="color: #58a6ff;"> )</span>.<br />
-                At the bottom of the table, there's also a section summarizing the contents of that category.
-                Mods, Addons and Forks includes links to the latest updated
-                versions.
+                    Clicking on the name of a mod will display a tooltip with the links to the latest versions for download, 
+                    and hovering over a category will show one with a brief description of the types of mod that can be found under that category,
+                    at the bottom of the table there's also a section summarizing the contents of the category.
             </p>
             <br />
             <p>
@@ -174,25 +173,25 @@
                 <h1><em><strong>Content Summary</strong></em></h1>
             </div>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gy-5" style="margin-bottom: 8rem;">
-            <div id="tot-content" class="col-md-3 d-flex align-items-center">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 gy-5" style="margin-bottom: 8rem;">
+            <div id="tot-content" class="col d-flex align-items-center">
                 <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
-            <div id="tot-mod" class="col-md-3 d-flex align-items-baseline">
+            <div id="tot-mod" class="col d-flex align-items-baseline">
                 <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
-            <div id="tot-addon" class="col-md-3 d-flex align-items-center">
+            <div id="tot-addon" class="col d-flex align-items-center">
                 <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
-            <div id="tot-fork" class="col-md-3 d-flex align-items-center">
+            <div id="tot-fork" class="col d-flex align-items-center">
                 <span class="animated-icon" style="white-space: nowrap;">
                 </span>
             </div>
         </div>
-        <div id="source-section" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 gy-5">
+        <div id="source-section" class="row row-cols-1 row-cols-md-2 row-cols-xl-4 gy-5">
             <div class="col">
                 <h2><em><strong><i class="fa-solid fa-sm fa-rectangle-list me-2"></i>Forums</strong></em>
                 </h2>
@@ -339,7 +338,7 @@
         const jsonData = [
             {
                 category:
-                    Tooltip('<i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech', 'All the material found here is the result of thorough research and comes from many reliable sources, including major modded Minecraft forums, GitHub profiles of mod developers, articles and lists created by the community, and a detailed analysis of the most popular and widely played modpacks for this version, including those released at launch as well as those introduced in the years since and still actively maintained today. Please keep in mind that, despite the many hours spent creating this list, some mods, even quite well known ones, might be missing. The goal is to keep the list updated with new releases and community suggestions, while maintaining the same level of detail and information to ensure it remains as usable as possible.'),
+                    Tooltip('<i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech', 'Mods mainly related to the production and consumption of RF, through which it is possible to automate processes, create advanced farms and equipment and process resources in various ways'),
                 mods: [
                     {
                         Name: [`${Popover('Advanced Generators', [Links("https://www.curseforge.com/minecraft/mc-mods/advanced-generators/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)])}`],
@@ -417,7 +416,7 @@
             },
             {
                 category:
-                    '<span><i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic</span>',
+                    Tooltip('<i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic', 'Mods focused on controlling various aspects of the game using redstone, providing advanced circuits and new logistics systems whether through minecarts or other methods for transporting both items and players') ,
                 mods: [
                     {
                         Name: [`${Popover('ComputerCraft', [Links('https://modrinth.com/mod/computercraft/versions?g=1.7.10', ICON_MODRINTH)])}`],
@@ -471,7 +470,7 @@
             },
             {
                 category:
-                    '<span><i class="fa-solid fa-sm fa-box-archive mx-2"></i>Storage & Inventory</span>',
+                    Tooltip('<i class="fa-solid fa-sm fa-box-archive mx-2"></i>Storage & Inventory', 'Mods that expand the possibilities for storing items, fluids, energy, and other gatherable resources, as well as the player’s inventory'),
                 mods: [
                     {
                         Name: [`${Popover('Applied Energistics 2', [Links('https://www.curseforge.com/minecraft/mc-mods/applied-energistics-2/files/all?page=1&amp;pageSize=20&amp;version=1.7.10', ICON_CURSE)])}`],
@@ -537,26 +536,86 @@
             },
             {
                 category:
-                    '<span><i class="fa-solid fa-sm fa-hammer mx-2"></i>Tools & Weponary</span>',
+                    Tooltip('<i class="fa-solid fa-sm fa-hammer mx-2"></i>Tools & Weponary', 'Mods that add armors, tools, weapons, and various equipment'),
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Better builder wands', [Links("https://www.curseforge.com/minecraft/mc-mods/better-builders-wands/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/better-builders-wands/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Wands that simplify building by placing entire rows or patterns of blocks in a single action, and come with different materials with progressively larger ranges`],
+                        Addons: [],
+                        Fork: [`${Popover('Better builder wands - GTNH', [Links('https://github.com/GTNewHorizons/BetterBuildersWands', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility and bug fixes`],
+                    },
+                    {
+                        Name: [`${Popover('Draconic Evolution', [Links("https://www.curseforge.com/minecraft/mc-mods/draconic-evolution/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE) , Links('https://modrinth.com/mod/draconic-evolution/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`This is a mod that adds a lot of high-tier items such as tools and armor as well as some high-tier energy storage and a lot of other random features `],
+                        Addons: [],
+                        Fork: [`${Popover('Draconic Evolution - GTNH', [Links('https://github.com/GTNewHorizons/Draconic-Evolution', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod which adds more configuration options, and have better compatibility, bug fixes, and performance improvements`],
+                    },
+                    {
+                        Name: [`${Popover('Modular Powersuit', [Links("https://www.curseforge.com/minecraft/mc-mods/modular-powersuits/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`High-Tech powered armor chock-full of useful gadgets and features, inspired by armor in mods like EE2 and IC2`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Open modular turrets', [Links("https://www.curseforge.com/minecraft/mc-mods/openmodularturrets/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`A mod that adds tons of modular turrets, upgrades, add-ons, and general manly security measures`],
+                        Addons: [],
+                        Fork: [`${Popover('Open modular turrets - GTNH', [Links('https://github.com/GTNewHorizons/OpenModularTurrets', ICON_GITHUB)])} &nbsp:&nbsp Improved turret AI along with the GUIs and added new features such as kill count, as well as various bug fixes and performance improvements`],
+                    },
+                    {
+                        Name: [`${Popover('Redstone Arsenal', [Links("https://www.curseforge.com/minecraft/mc-mods/redstone-arsenal/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Redstone Arsenal adds tools and weapons that harness the power of Redstone Flux`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Tinker’s construct', [Links("https://www.curseforge.com/minecraft/mc-mods/tinkers-construct/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/tinkers-construct/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`A mod about modular tool creation using different materials, it allows adding modifiers to enhance their properties and is compatible with almost any material from other mods. It also introduces a smelting system for materials, along with various other utilities`],
+                        Addons: [`${Popover('ExtraTiC', [Links('https://www.curseforge.com/minecraft/mc-mods/extratic/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Adds additional tools and weapons for Tinkers' Construct including more mod support`, `${Popover('Iguana Tinker’s Tweaks', [Links('https://www.curseforge.com/minecraft/mc-mods/iguanas-tinker-tweaks/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Adds configurable modules that overhaul mod’s mechanics such as tool leveling, mining level progression, tool part swapping, and various other tweaks`, `${Popover('TiC Tooltips', [Links('https://www.curseforge.com/minecraft/mc-mods/tic-tooltips/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp A client-side addon that makes tooltips more readable by adding keybindings to expand them, and provides additional information about tools and materials`, `${Popover('TMechworks', [Links('https://www.curseforge.com/minecraft/mc-mods/tinkers-mechworks/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE), Links('https://modrinth.com/mod/tinkers-mechworks/versions?g=1.7.10', ICON_MODRINTH)])} &nbsp:&nbsp Adds various redstone machines to TConstruct`],
+                        Fork: [`${Popover('Tinker’s construct - GTNH', [Links('https://github.com/GTNewHorizons/TinkersConstruct', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod that backport some features from the newer versions, and have better compatibility and integration with other mods, bug fixes, and performance improvements`, `${Popover('Iguana Tinker’s Tweaks - GTNH', [Links('https://github.com/GTNewHorizons/IguanaTweaksTConstruct', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements`],
                     },
                 ],
             },
             {
                 category:
-                    '<span><i class="fa-solid fa-sm fa-apple-whole mx-2"></i>Food & Farming</span>',
+                    Tooltip('<span><i class="fa-solid fa-sm fa-apple-whole mx-2"></i>Food & Farming</span>', '') ,
                 mods: [
+                    {
+                        Name: [`${Popover('AgriCraft', [Links("https://www.curseforge.com/minecraft/mc-mods/agricraft/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Mod which aims to bring crop breeding to Minecraft, this includes both improving your existing crops, or cross-breeding to mutate into new species of crops, it is compatible with and integrates well with a wide range of mods that add new crops`],
+                        Addons: [],
+                        Fork: [`${Popover('Agricraft Continuation', [Links('https://github.com/quentin452/AgriCraft-Continuation', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements`],
+                    },
+                    {
+                        Name: [`${Popover('Aquaculture 2', [Links("https://www.curseforge.com/minecraft/mc-mods/aquaculture/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`expands the fishing system in Minecraft with over 30 new fish to catch either with a rod or found swimming in the wild. It also adds a series of new rods which allows you to equip hooks & bait for additional functionality`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Cooking for blockheads', [Links("https://www.curseforge.com/minecraft/mc-mods/cooking-for-blockheads/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds a functional kitchen, use the Book or the Cooking Table to find out what you can cook with what ingredients you have available, and start cooking through a single click. The kitchen is modular and can be upgraded through additional blocks`],
+                        Addons: [],
+                        Fork: [`${Popover('Cooking for blockheads - GTNH', [Links('https://github.com/GTNewHorizons/CookingForBlockheads', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility and integration with other mods, bug fixes, and recipe fixes`],
+                    },
+                    {
+                        Name: [`${Popover('Ex-Nihilo', [Links("https://www.curseforge.com/minecraft/mc-mods/ex-nihilo/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Allow players to compost organic materials in a Barrel to produce dirt, which can then be sieved to produce other items such as grass seeds and stone. Players can also use a Hammer to break down blocks into different materials, creating a progression system that starts from basic resources and leads to more advanced items`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Forestry', [Links("https://www.curseforge.com/minecraft/mc-mods/forestry/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Forestry deals with farming, renewable energy production as well as the breeding of trees, bees and butterflies in Minecraft`],
+                        Addons: [`${Popover('BeeBetterAtBees', [Links('https://www.curseforge.com/minecraft/mc-mods/beebetteratbees/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp This mod adds a more clear bee-breeding guidance in form of breeding trees to NEI`, `${Popover('Binnie’s Mods', [Links('https://modrinth.com/mod/binnies-mods/versions?g=1.7.10', ICON_MODRINTH)])} &nbsp:&nbsp Extends the bee and tree breeding aspect by adding many new species with varied products`, `${Popover('Binnie’s Patcher', [Links('https://www.curseforge.com/minecraft/mc-mods/binniepatcher/files/all?page=1&pageSize=20', ICON_CURSE)])} &nbsp:&nbsp Patch compatibility for the Forestry 4 API changes`, `${Popover('Gendustry', [Links('https://www.curseforge.com/minecraft/mc-mods/gendustry/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Introduces advanced genetic manipulation and mutation capabilities for bees, trees, and butterflies`, `${Popover('Magic Bees', [Links('https://www.curseforge.com/minecraft/mc-mods/magic-bees/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Adds integration with several magic-themed mods`],
+                        Fork: [`${Popover('Forestry - GTNH', [Links('https://github.com/GTNewHorizons/ForestryMC', ICON_GITHUB)])} &nbsp:&nbsp  An up to date version of the mod with better compatibility, bug fixes, and performance improvements, as well as some features backported from 1.12.2 and the Forestry 4 API`, `${Popover('BeeBetterAtBees - GTNH', [Links('https://github.com/GTNewHorizons/BeeBetterAtBees-GTNH', ICON_GITHUB)])} &nbsp:&nbsp Better integration with Forestry and NEI from GTNH`, `${Popover('Gendustry - GTNH', [Links('https://github.com/GTNewHorizons/gendustry', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility and integration with other mods, bug fixes and performance improvements`, `${Popover('Magic Bees - GTNH', [Links('https://github.com/GTNewHorizons/MagicBees', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements, also include the Forestry 4 API`],
+                    },
                     {
                         Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
                         Info: [` `],
                         Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
                         Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
-                    },
+                    }
                 ],
             },
             {

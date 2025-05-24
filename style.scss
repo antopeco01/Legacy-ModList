@@ -37,7 +37,7 @@ $color-search-bg: #01040999;
 }
 
 .customTooltip {
-  max-width: 800px;
+  max-width: 500px;
   --bs-popover-bg: #f6f6f6;
   & .popover-body{
     color: #161b22;
@@ -289,6 +289,9 @@ input:not(:placeholder-shown) + label {
     padding-right: 32px !important;
   }
   #searchBar {
+    display: none !important;
+  }
+  #go-to-head{
     display: none !important;
   }
 }

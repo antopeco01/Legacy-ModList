@@ -22,7 +22,7 @@
 }
 
 .customTooltip {
-  max-width: 800px;
+  max-width: 500px;
   --bs-popover-bg: #f6f6f6;
 }
 .customTooltip .popover-body {
@@ -243,6 +243,9 @@ input:not(:placeholder-shown) + label {
     padding-right: 32px !important;
   }
   #searchBar {
+    display: none !important;
+  }
+  #go-to-head {
     display: none !important;
   }
 }
