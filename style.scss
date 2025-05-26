@@ -39,7 +39,7 @@ $color-search-bg: #01040999;
 .customTooltip {
   max-width: 500px;
   --bs-popover-bg: #f6f6f6;
-  & .popover-body{
+  & .popover-body {
     color: #161b22;
   }
 }
@@ -261,6 +261,53 @@ input:not(:placeholder-shown) + label {
   }
 }
 
+#go-to-head {
+  z-index: 1050;
+  position: fixed;
+  right: 48px;
+  bottom: 32px;
+  display: none;
+  & > a {
+    color: #ffffff;
+  }
+  & i {
+    transition: transform 0.3s ease;
+  }
+  &:hover i {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes popOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+.pop-in {
+  animation: popIn 0.2s ease-out forwards;
+}
+
+.pop-out {
+  animation: popOut 0.2s ease-in forwards;
+}
+
 .dropdown-menu {
   background-color: $color-bg-nav;
   border: 1px solid $color-bg-dropdown;
@@ -291,7 +338,7 @@ input:not(:placeholder-shown) + label {
   #searchBar {
     display: none !important;
   }
-  #go-to-head{
-    display: none !important;
+  #go-to-head {
+    right: 32px !important;
   }
 }

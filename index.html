@@ -74,9 +74,10 @@
                     style="color: #58a6ff;">(
                 </span>unofficial releases, along with a description of how it differs from the official one.<span
                     style="color: #58a6ff;"> )</span>.<br />
-                    Clicking on the name of a mod will display a tooltip with the links to the latest versions for download, 
-                    and hovering over a category will show one with a brief description of the types of mod that can be found under that category,
-                    at the bottom of the table there's also a section summarizing the contents of the category.
+                Clicking on the name of a mod will display a tooltip with the links to the latest versions for download,
+                and hovering over a category will show one with a brief description of the types of mod that can be
+                found under that category,
+                at the bottom of the table there's also a section summarizing the contents of the category.
             </p>
             <br />
             <p>
@@ -164,11 +165,6 @@
     <!--Footer-->
     <div class=" description" style=" padding: 5rem;">
         <div class="row">
-            <div id="go-to-head" class="col-12 text-end">
-                <a href="" onclick="event.preventDefault()">
-                    <i class="fas fa-2x fa-turn-up"></i>
-                </a>
-            </div>
             <div class="col-12 mb-3">
                 <h1><em><strong>Content Summary</strong></em></h1>
             </div>
@@ -312,6 +308,12 @@
         </div>
     </div>
 
+    <div id="go-to-head" class="not-visible">
+        <a href="" onclick="event.preventDefault()">
+            <i class="fas fa-2x fa-turn-up"></i>
+        </a>
+    </div>
+
     <!-- #region Script -->
 
     <!-- Data -->
@@ -331,8 +333,8 @@
             return `<em><strong><a href="#" onclick="event.preventDefault()" title="Links" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex justify-content-center gap-3">${icons.join(' ')}</span>'>${mod}</a></strong></em>`;
         }
 
-        function Tooltip(category, description){
-            return `<span class="Tooltip" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content='${description}'>${category}</span>`
+        function Tooltip(category, description) {
+            return `<span class="Tooltip" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="left" data-bs-content='${description}'>${category}</span>`
         }
 
         const jsonData = [
@@ -416,7 +418,7 @@
             },
             {
                 category:
-                    Tooltip('<i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic', 'Mods focused on controlling various aspects of the game using redstone, providing advanced circuits and new logistics systems whether through minecarts or other methods for transporting both items and players') ,
+                    Tooltip('<i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic', 'Mods focused on controlling various aspects of the game using redstone, providing advanced circuits and new logistics systems whether through minecarts or other methods for transporting both items and players'),
                 mods: [
                     {
                         Name: [`${Popover('ComputerCraft', [Links('https://modrinth.com/mod/computercraft/versions?g=1.7.10', ICON_MODRINTH)])}`],
@@ -545,7 +547,7 @@
                         Fork: [`${Popover('Better builder wands - GTNH', [Links('https://github.com/GTNewHorizons/BetterBuildersWands', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility and bug fixes`],
                     },
                     {
-                        Name: [`${Popover('Draconic Evolution', [Links("https://www.curseforge.com/minecraft/mc-mods/draconic-evolution/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE) , Links('https://modrinth.com/mod/draconic-evolution/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Name: [`${Popover('Draconic Evolution', [Links("https://www.curseforge.com/minecraft/mc-mods/draconic-evolution/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/draconic-evolution/versions?g=1.7.10', ICON_MODRINTH)])}`],
                         Info: [`This is a mod that adds a lot of high-tier items such as tools and armor as well as some high-tier energy storage and a lot of other random features `],
                         Addons: [],
                         Fork: [`${Popover('Draconic Evolution - GTNH', [Links('https://github.com/GTNewHorizons/Draconic-Evolution', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod which adds more configuration options, and have better compatibility, bug fixes, and performance improvements`],
@@ -578,7 +580,7 @@
             },
             {
                 category:
-                    Tooltip('<span><i class="fa-solid fa-sm fa-apple-whole mx-2"></i>Food & Farming</span>', 'Mods that introduce new mechanics around player nutrition and new ways to farm essential resources, with added foods, crops, and plants') ,
+                    Tooltip('<span><i class="fa-solid fa-sm fa-apple-whole mx-2"></i>Food & Farming</span>', 'Mods that introduce new mechanics around player nutrition and new ways to farm essential resources, with added foods, crops, and plants'),
                 mods: [
                     {
                         Name: [`${Popover('AgriCraft', [Links("https://www.curseforge.com/minecraft/mc-mods/agricraft/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -668,7 +670,7 @@
             },
             {
                 category:
-                    Tooltip('<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>', 'Mods that bring a fresh touch to Minecraft’s adventure by adding powerful artifacts, relics, and other useful items, while introducing role-playing mechanics that make survival more challenging') ,
+                    Tooltip('<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>', 'Mods that bring a fresh touch to Minecraft’s adventure by adding powerful artifacts, relics, and other useful items, while introducing role-playing mechanics that make survival more challenging'),
                 mods: [
                     {
                         Name: [`${Popover('Adventurer’s amulets', [Links("https://www.curseforge.com/minecraft/mc-mods/adventurers-amulets/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -686,7 +688,7 @@
                         Name: [`${Popover('EnviroMine', [Links("https://www.curseforge.com/minecraft/mc-mods/enviromine/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
                         Info: [`EnviroMine is all about environmental realism whether it be physics, body temperature, thirst, clean air or even keeping a sane mind in caves, it will test your survival skills and endurance`],
                         Addons: [],
-                        Fork: [`${Popover('EnviroMine Continuation', [Links('https://www.curseforge.com/minecraft/mc-mods/enviromine-continuation/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE) ,Links('https://modrinth.com/mod/enviromine-continuation/versions', ICON_MODRINTH)])} &nbsp:&nbsp An up to date version of the mod with better compatibility with other mods like Serene Seasons, Mekanism, and Nuclear Tech, along with bug fixes and performance improvements`],
+                        Fork: [`${Popover('EnviroMine Continuation', [Links('https://www.curseforge.com/minecraft/mc-mods/enviromine-continuation/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE), Links('https://modrinth.com/mod/enviromine-continuation/versions', ICON_MODRINTH)])} &nbsp:&nbsp An up to date version of the mod with better compatibility with other mods like Serene Seasons, Mekanism, and Nuclear Tech, along with bug fixes and performance improvements`],
                     },
                     {
                         Name: [`${Popover('Nature’s compass', [Links("https://www.curseforge.com/minecraft/mc-mods/natures-compass/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/natures-compass/versions?g=1.7.10', ICON_MODRINTH)])}`],
@@ -704,8 +706,56 @@
             },
             {
                 category:
-                    '<span><i class="fa-solid fa-sm fa-broom mx-2"></i>Magic</span>',
+                    Tooltip('<span><i class="fa-solid fa-sm fa-broom mx-2"></i>Magic</span>', ''),
                 mods: [
+                    {
+                        Name: [`${Popover('Ars Magica 2', [Links("https://www.curseforge.com/minecraft/mc-mods/ars-magica-2/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Mod about casting powerful spells, fighting bosses, and having fun with magic. It features a unique spell creation system where you can create any spell you can imagine`],
+                        Addons: [],
+                        Fork: [`${Popover('Ars Magica 2.5', [Links('https://modrinth.com/mod/ars-magica-25/versions', ICON_MODRINTH)])} &nbsp:&nbsp Reintroduces some features from older versions and adds new ones, along with various bug fixes`, `${Popover('Ars Magica LE', [Links('https://www.curseforge.com/minecraft/mc-mods/ars-magica-2-le/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Forces worldgen to occur in the Twilight forest instead of overworld`],
+                    },
+                    {
+                        Name: [`${Popover('Blood Magic', [Links("https://www.curseforge.com/minecraft/mc-mods/blood-magic/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/blood-magic/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Introduces a life-based magic system where players can conjure runes, sigils, and orbs and perform rituals using blood as a power sourc`],
+                        Addons: [`${Popover('Blood Arsenal', [Links('https://www.curseforge.com/minecraft/mc-mods/blood-arsenal/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Adds a variety of different tools and mechanics to supplement and enhance Blood Magic experience`, `${Popover('Sanguimancy', [Links('https://www.curseforge.com/minecraft/mc-mods/sanguimancy/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Adds automation features and rituals`],
+                        Fork: [`${Popover('Blood Magic - GTNH', [Links('https://github.com/GTNewHorizons/BloodMagic', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with bug fixes, and performance improvements`, `${Popover('Blood Arsenal - GTNH', [Links('https://github.com/GTNewHorizons/BloodArsenal', ICON_GITHUB)])}`],
+                    },
+                    {
+                        Name: [`${Popover('Botania', [Links("https://www.curseforge.com/minecraft/mc-mods/botania/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/botania/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Tech mod themed around natural magic centered around creating magical flowers and devices using Mana, the power of the earth`],
+                        Addons: [`${Popover('Alfheim', [Links('https://www.curseforge.com/minecraft/mc-mods/alfheim/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE), Links('https://modrinth.com/mod/alfheim/versions', ICON_MODRINTH)])} &nbsp:&nbsp Allow you to build a portal to Alfheim, one of the nine worlds of Scandinavian mythology. In this dimension, players can explore, build, and engage in various activities, including flying with fairy wings`],
+                        Fork: [`${Popover('Botania - GTNH', [Links('https://github.com/GTNewHorizons/Botania', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements, as well as some features backported from newer versions`],
+                    },
+                    {
+                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
+                        Info: [` `],
+                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
+                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                    },
+                    {
+                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
+                        Info: [` `],
+                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
+                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                    },
+                    {
+                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
+                        Info: [` `],
+                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
+                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                    },
+                    {
+                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
+                        Info: [` `],
+                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
+                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                    },
+                    {
+                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
+                        Info: [` `],
+                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
+                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                    },
                     {
                         Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
                         Info: [` `],
@@ -933,10 +983,10 @@
         const tooltipElements = document.querySelectorAll('.Tooltip');
         tooltipElements.forEach(el => {
             new bootstrap.Popover(el, {
-                trigger: 'hover',           
+                trigger: 'hover',
                 html: true,
                 container: 'body',
-                customClass: 'customTooltip'      
+                customClass: 'customTooltip'
             });
         });
     </script>

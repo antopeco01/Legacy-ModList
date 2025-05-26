@@ -192,7 +192,9 @@ jsonData.forEach((entry) => {
   const contents = [0, 0, 0, 0];
   const category = entry.category;
   const mods = entry.mods;
-  const safeId = category.replace(/\s+/g, "_");
+  let temp = document.createElement("div");
+  temp.innerHTML = category;
+  const safeId = temp.textContent.replace(/\s+/g, "_");
 
   // Header
   const header = document.createElement("h2");
@@ -200,7 +202,7 @@ jsonData.forEach((entry) => {
   header.classList.add("fa");
   header.classList.add("mb-3");
   header.style.marginTop = "4.5rem";
-  header.innerHTML = category;
+  header.innerHTML = temp.firstChild.innerHTML;
   contentContainer.appendChild(header);
 
   // Table
@@ -329,9 +331,10 @@ jsonData.forEach((entry) => {
 
   // NavBar
   const menuItem = document.createElement("li");
-  const link = document.createElement("a");
-  link.className = "dropdown-item";
+  let link = document.createElement("span");
   link.innerHTML = category;
+  link = link.firstChild;
+  link.className = "dropdown-item Tooltip";
   link.addEventListener("click", () => {
     let el = document.getElementById(`header-${safeId}`);
     if (el) {
@@ -410,10 +413,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   headIcon.addEventListener("mouseenter", () => {
     headIcon.style.color = "#58a6ff";
-    headIcon.classList.add("fa-bounce");
-    setTimeout(() => {
-      headIcon.classList.remove("fa-bounce");
-    }, 1000);
   });
   headIcon.addEventListener("mouseleave", () => {
     headIcon.style.color = "#ffffff";
@@ -428,5 +427,33 @@ document.addEventListener("DOMContentLoaded", function () {
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "noopener noreferrer");
   });
+
+  const target = document.getElementById("header-Redstone_&_Logistic");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const y = window.innerHeight - entry.boundingClientRect.bottom;
+        if (y > 0) {
+          head.classList.remove("pop-out");
+          head.style.display = "block";
+          head.classList.add("pop-in");
+          headIcon.classList.add("fa-bounce");
+          setTimeout(() => {
+            headIcon.classList.remove("fa-bounce");
+          }, 1000);
+        } else {
+          head.classList.remove("pop-in");
+          head.classList.add("pop-out");
+          setTimeout(() => {
+            head.style.display = "none";
+          }, 1000);
+        }
+      });
+    },
+    {
+      threshold: 1,
+    }
+  );
+  observer.observe(target);
 });
 //#endregion Listeners
