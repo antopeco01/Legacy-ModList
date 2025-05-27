@@ -89,10 +89,10 @@ function updateCounter() {
 
     const deleteBtn = document.createElement("span");
     deleteBtn.innerHTML =
-      '<button class="customBtn btn btn-sm" id="delete"><i class="fas fa-xmark"></i></button>';
+      '<button class="btn btn-sm" id="delete"><i class="fas fa-xmark"></i></button>';
     deleteBtn.addEventListener("click", () => {
-      input.value = "";
       label.style.display = "block";
+      input.value = "";
       updateResults();
     });
     searchBar.appendChild(deleteBtn);
@@ -333,7 +333,11 @@ jsonData.forEach((entry) => {
   const menuItem = document.createElement("li");
   let link = document.createElement("span");
   link.innerHTML = category;
-  link = link.firstChild;
+  if(window.innerWidth<=768){
+    link.innerHTML = link.firstChild.innerHTML;
+  }else{
+    link = link.firstChild;
+  }
   link.className = "dropdown-item Tooltip";
   link.addEventListener("click", () => {
     let el = document.getElementById(`header-${safeId}`);
@@ -401,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const head = document.getElementById("go-to-head");
   const headIcon = head.querySelector("i");
 
-  head.querySelector("a").addEventListener("click", () => {
+  head.querySelector("i").addEventListener("click", () => {
     const el = document.getElementById("head");
     el.scrollIntoView({ behavior: "smooth", block: "center" });
   });
@@ -409,13 +413,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("source-shortcut").addEventListener("click", () => {
     const el = document.getElementById("source-section");
     el.scrollIntoView({ behavior: "smooth", block: "center" });
-  });
-
-  headIcon.addEventListener("mouseenter", () => {
-    headIcon.style.color = "#58a6ff";
-  });
-  headIcon.addEventListener("mouseleave", () => {
-    headIcon.style.color = "#ffffff";
   });
 
   document
@@ -455,5 +452,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
   observer.observe(target);
+
+  if(window.innerWidth <= 768){
+    head.addEventListener('click', ()=>{
+      head.style.color = "#58a6ff"
+      setTimeout(() => {
+        head.style.color = "#ffffff"
+      }, 200);
+    })
+  }
 });
 //#endregion Listeners

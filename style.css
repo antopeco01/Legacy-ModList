@@ -178,6 +178,15 @@ input:not(:placeholder-shown) + label {
   color: #58a6ff;
 }
 
+#delete {
+  color: #f6f0fc;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+}
+#delete:hover i {
+  color: #58a6ff;
+}
+
 .scaled,
 .scale-up,
 .scale-down {
@@ -228,9 +237,6 @@ input:not(:placeholder-shown) + label {
 }
 #go-to-head i {
   transition: transform 0.3s ease;
-}
-#go-to-head:hover i {
-  transform: scale(1.2);
 }
 
 @keyframes popIn {
@@ -292,6 +298,12 @@ input:not(:placeholder-shown) + label {
   }
   #go-to-head {
     right: 32px !important;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  #go-to-head:hover i {
+    color: #58a6ff;
+    transform: scale(1.2);
   }
 }
 

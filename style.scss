@@ -221,6 +221,18 @@ input:not(:placeholder-shown) + label {
   }
 }
 
+#delete {
+  color: $color-border-light;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none;
+
+  &:hover i {
+    color: $color-text-primary;
+  }
+}
+
+
+
 .scaled,
 .scale-up,
 .scale-down {
@@ -272,9 +284,6 @@ input:not(:placeholder-shown) + label {
   }
   & i {
     transition: transform 0.3s ease;
-  }
-  &:hover i {
-    transform: scale(1.2);
   }
 }
 
@@ -340,5 +349,12 @@ input:not(:placeholder-shown) + label {
   }
   #go-to-head {
     right: 32px !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #go-to-head:hover i {
+    color: $color-text-primary;
+    transform: scale(1.2);
   }
 }
