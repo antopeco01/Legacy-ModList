@@ -75,7 +75,7 @@
                 </span>unofficial releases, along with a description of how it differs from the official one.<span
                     style="color: #58a6ff;"> )</span>.<br />
                 Clicking on the name of a mod will display a tooltip with the links to the latest versions for download,
-                and hovering over a category will show one with a brief description of the types of mod that can be
+                and hovering over a category in the Navbar menu will show one with a brief description of the types of mod that can be
                 found under that category,
                 at the bottom of the table there's also a section summarizing the contents of the category.
             </p>
@@ -527,6 +527,12 @@
                         Fork: [],
                     },
                     {
+                        Name: [`${Popover('SimpleLabels', [Links("https://www.curseforge.com/minecraft/mc-mods/simplelabels/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Designed to enhance the storage and organization experience in the game, it adds labels to Deep Storage Units and other objects, allowing players to input items with a right-click and extract them with a left-click or shift-left click`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
                         Name: [`${Popover('Storage Drawers', [Links("https://modrinth.com/mod/storagedrawers/versions?g=1.7.10", ICON_MODRINTH)])}`],
                         Info: [`Borrows ideas from Jabba and Bibliocraft, resulting in a functional storage solution that complements those mods. Adds other features such as compacting drawers and a drawers controller`],
                         Addons: [],
@@ -608,7 +614,7 @@
                         Name: [`${Popover('Forestry', [Links("https://www.curseforge.com/minecraft/mc-mods/forestry/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
                         Info: [`Forestry deals with farming, renewable energy production as well as the breeding of trees, bees and butterflies in Minecraft`],
                         Addons: [`${Popover('BeeBetterAtBees', [Links('https://www.curseforge.com/minecraft/mc-mods/beebetteratbees/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp This mod adds a more clear bee-breeding guidance in form of breeding trees to NEI`, `${Popover('Binnie’s Mods', [Links('https://modrinth.com/mod/binnies-mods/versions?g=1.7.10', ICON_MODRINTH)])} &nbsp:&nbsp Extends the bee and tree breeding aspect by adding many new species with varied products`, `${Popover('Binnie’s Patcher', [Links('https://www.curseforge.com/minecraft/mc-mods/binniepatcher/files/all?page=1&pageSize=20', ICON_CURSE)])} &nbsp:&nbsp Patch compatibility for the Forestry 4 API changes`, `${Popover('Gendustry', [Links('https://www.curseforge.com/minecraft/mc-mods/gendustry/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Introduces advanced genetic manipulation and mutation capabilities for bees, trees, and butterflies`, `${Popover('Magic Bees', [Links('https://www.curseforge.com/minecraft/mc-mods/magic-bees/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Adds integration with several magic-themed mods`],
-                        Fork: [`${Popover('Forestry - GTNH', [Links('https://github.com/GTNewHorizons/ForestryMC', ICON_GITHUB)])} &nbsp:&nbsp  An up to date version of the mod with better compatibility, bug fixes, and performance improvements, as well as some features backported from 1.12.2 and the Forestry 4 API`, `${Popover('BeeBetterAtBees - GTNH', [Links('https://github.com/GTNewHorizons/BeeBetterAtBees-GTNH', ICON_GITHUB)])} &nbsp:&nbsp Better integration with Forestry and NEI from GTNH`, `${Popover('Gendustry - GTNH', [Links('https://github.com/GTNewHorizons/gendustry', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility and integration with other mods, bug fixes and performance improvements`, `${Popover('Magic Bees - GTNH', [Links('https://github.com/GTNewHorizons/MagicBees', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements, also include the Forestry 4 API`],
+                        Fork: [`${Popover('Forestry - GTNH', [Links('https://github.com/GTNewHorizons/ForestryMC', ICON_GITHUB)])} &nbsp:&nbsp  An up to date version of the mod with better compatibility, bug fixes, and performance improvements, as well as some features backported from 1.12.2 and the Forestry 4 API`, `${Popover('BeeBetterAtBees - GTNH', [Links('https://github.com/GTNewHorizons/BeeBetterAtBees-GTNH', ICON_GITHUB)])}`, `${Popover('Gendustry - GTNH', [Links('https://github.com/GTNewHorizons/gendustry', ICON_GITHUB)])}`, `${Popover('Magic Bees - GTNH', [Links('https://github.com/GTNewHorizons/MagicBees', ICON_GITHUB)])}`],
                     },
                     {
                         Name: [`${Popover('Growthcraft CE', [Links("https://www.curseforge.com/minecraft/mc-mods/growthcraft-community-edition/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -668,7 +674,7 @@
             },
             {
                 category:
-                    Tooltip('<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>', 'Mods that bring a fresh touch to Minecraft’s adventure by adding powerful artifacts, relics, and other useful items, while introducing role-playing mechanics that make survival more challenging'),
+                    Tooltip('<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>', 'Mods that bring a fresh touch to Minecraft adventure by adding powerful artifacts, relics, and other useful items, while introducing role-playing mechanics that make survival more challenging'),
                 mods: [
                     {
                         Name: [`${Popover('Adventurer’s amulets', [Links("https://www.curseforge.com/minecraft/mc-mods/adventurers-amulets/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -704,7 +710,7 @@
             },
             {
                 category:
-                    Tooltip('<span><i class="fa-solid fa-sm fa-broom mx-2"></i>Magic</span>', ''),
+                    Tooltip('<span><i class="fa-solid fa-sm fa-broom mx-2"></i>Magic</span>', 'Mods that introduce magic systems, spells and powerful artifacts, supporting the player in battle, exploration, and advancement through the game'),
                 mods: [
                     {
                         Name: [`${Popover('Ars Magica 2', [Links("https://www.curseforge.com/minecraft/mc-mods/ars-magica-2/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -725,52 +731,76 @@
                         Fork: [`${Popover('Botania - GTNH', [Links('https://github.com/GTNewHorizons/Botania', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements, as well as some features backported from newer versions`],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Electroblob’s Wizardry', [Links("https://www.curseforge.com/minecraft/mc-mods/electroblobs-wizardry/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Magic based mod that adds an RPG-style system of magic spells. It has very few crafting recipes and no complex constructions, focusing instead on exploration and fighting to progress. Players can find spell books, wands, and scrolls to cast spells and master the arcane`],
+                        Addons: [],
+                        Fork: [`${Popover('Wizardry - Thorfusion', [Links('https://github.com/Thorfusion/Wizardry', ICON_GITHUB)])} &nbsp:&nbsp Adds compatibility with EFR by introducing deepslate ores and fix some bugs`],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Enchanting plus', [Links("https://www.curseforge.com/minecraft/mc-mods/enchanting-plus/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/enchanting-plus/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Mod which allows the player to have full control over the enchantments on their items at the cost of significantly more EXP`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Thaumcraft', [Links("https://www.curseforge.com/minecraft/mc-mods/thaumcraft/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Magic mod centered around research, discovery, and the manipulation of a mystical energy known as Vis. Players explore and analyze the world using magical tools, unlocking new technologies through the Thaumonomicon. The mod features deep systems such as alchemy, magical infusion and aura management, excessive use of magic can lead to environmental corruption`],
+                        Addons: [`${Popover('Thaumcraft 4 Addon List', [Links('https://github.com/KryptonCaptain/Misc-Files/blob/master/TC4%20addon%20list.md', ICON_CURSE)])} &nbsp:&nbsp A comprehensive list of all addons, organized by importance`],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Waystones', [Links("https://www.curseforge.com/minecraft/mc-mods/waystones/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds waystone blocks that the player can return to once they've been activated, either through a Warp Scroll, a rechargeable Warp Stone, or by using an existing waystone to hop from one to the other`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
-                    },
-                    {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Witchery', [Links("https://www.curseforge.com/minecraft/mc-mods/witchery/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds witchcraft and nature magic to Minecraft: cauldrons, broomsticks, ritual circles, magical brews, a bit of necromancy and voodoo for good measure`],
+                        Addons: [`${Popover('WitcheryPatch', [Links('https://www.curseforge.com/minecraft/mc-mods/witcherypatch/files/all?page=1&pageSize=20', ICON_CURSE), Links('https://modrinth.com/mod/witcherypatch/versions', ICON_MODRINTH)])} &nbsp:&nbsp Fix some bugs within Witchery`],
+                        Fork: [],
                     },
                 ],
             },
             {
                 category:
-                    '<span><i class="fa-solid fa-trowel-bricks mx-2"></i>Building & Decoration</span>',
+                    Tooltip('<span><i class="fa-solid fa-trowel-bricks mx-2"></i>Building & Decoration</span>', 'Mods that adds decorative blocks and utilities to assist with building, including schematics and copycats'),
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Advanced Chimeneys', [Links("https://www.curseforge.com/minecraft/mc-mods/advanced-chimneys/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds chimney pipes, through which smoke from the fire or furnace goes up into the air`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Carpenter’s Blocks', [Links("https://www.curseforge.com/minecraft/mc-mods/carpenters-blocks/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Allows players to add textures on the fly to craftable blocks, stairs, fences, and slopes, you place the blank blocks wherever you want and then right-click with any other block to add its texture to them`],
+                        Addons: [],
+                        Fork: [`${Popover('Carpenter’s Blocks - GTNH', [Links('https://github.com/GTNewHorizons/CarpentersBlocks', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements`],
+                    },
+                    {
+                        Name: [`${Popover('Chisel', [Links("https://www.curseforge.com/minecraft/mc-mods/chisel/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds a variety of decorative blocks to the game, enhancing the construction aspect, the mod's primary tool is the chisel, right-clicking with it opens a GUI where players can convert blocks into up to 24 different variants`],
+                        Addons: [],
+                        Fork: [`${Popover('Chisel - GTNH', [Links('https://github.com/GTNewHorizons/Chisel', ICON_GITHUB)])} &nbsp:&nbsp Contains loads of new blocks, new features like the Auto Chisel and chisel modes, and lots of bugfixes`],
+                    },
+                    {
+                        Name: [`${Popover('Garden Stuff', [Links("https://www.curseforge.com/minecraft/mc-mods/garden-stuff/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`collection of garden-related mods that enhances the gardening experience by adding various new items and blocks. It includes four independent mods: Garden Containers, Garden Core, Garden Stuff, and Garden Trees`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Little tiles', [Links("https://www.curseforge.com/minecraft/mc-mods/littletiles/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Allows players to create highly detailed and customizable structures by adding tiny blocks that can be 4096 times smaller than ordinary blocks`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Schematica', [Links("https://www.curseforge.com/minecraft/mc-mods/schematica/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Allows you to display a hologram, loaded from a schematic file, for easier rebuilding. You can also save your creations to schematic files and share them`],
+                        Addons: [],
+                        Fork: [`${Popover('Schematica - GTNH', [Links('https://github.com/GTNewHorizons/Schematica', ICON_GITHUB)])} &nbsp:&nbsp Store Coordinates & rotation of schematics per world/server. No more re-entering coordinates for large builds`],
                     },
                 ],
             },

@@ -303,7 +303,7 @@ input:not(:placeholder-shown) + label {
 @media (hover: hover) and (pointer: fine) {
   #go-to-head:hover i {
     color: #58a6ff;
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
 }
 
