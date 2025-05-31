@@ -317,8 +317,8 @@
     <!-- Data -->
     <script>
         //Icons
-        const ICON_CURSE = `<img src="https://media.forgecdn.net/avatars/130/458/636460205549127215.png" height="22" alt="CurseForge" class="popover-icon"/>`;
-        const ICON_MODRINTH = `<img src="https://camo.githubusercontent.com/90b5ec53efbbb2ea275e69de963f5bf737f16cdcc51677d83da92992486e66ae/68747470733a2f2f6d6f6472696e74682e636f6d2f66617669636f6e2e69636f" height="16" data-canonical-src="https://modrinth.com/favicon.ico" style="max-width: 100%;" class="popover-icon" />`;
+        const ICON_CURSE = `<img src="Curse.svg" height="20" class="popover-icon"/>`;
+        const ICON_MODRINTH = `<img src="Modrinth.svg"  height="18"  class="popover-icon" />`;
         const ICON_GITHUB = `<i class="popover-icon fa-brands fa-sm fa-github github-tooltip-icon" ></i>`;
         const ICON_OTHERS = `<i class="popover-icon fas fa-sm fa-globe globe-tooltip-icon" ></i>`;
 
@@ -338,7 +338,7 @@
         const jsonData = [
             {
                 category:
-                    Tooltip('<i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech', 'Mods mainly related to the production and consumption of RF, through which it is possible to automate processes, create advanced farms and equipment and process resources in various ways'),
+                    Tooltip('<i class="fa-solid fa-sm fa-wrench mx-2"></i>Tech', 'Mods mainly related to the production and consumption of RF, through which it is possible to automate processes, create advanced farms process resources in various ways'),
                 mods: [
                     {
                         Name: [`${Popover('Advanced Generators', [Links("https://www.curseforge.com/minecraft/mc-mods/advanced-generators/files/all?page=1&amp;pageSize=20&amp;version=1.7.10", ICON_CURSE)])}`],
@@ -416,7 +416,7 @@
             },
             {
                 category:
-                    Tooltip('<i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic', 'Mods focused on controlling various aspects of the game using redstone, providing advanced circuits and new logistics systems whether through minecarts or other methods for transporting both items and players'),
+                    Tooltip('<i class="fa-solid fa-sm fa-microchip mx-2"></i>Redstone & Logistic', 'Mods focused on controlling various aspects of the game using redstone, and new logistics systems for transporting both items and players'),
                 mods: [
                     {
                         Name: [`${Popover('ComputerCraft', [Links('https://modrinth.com/mod/computercraft/versions?g=1.7.10', ICON_MODRINTH)])}`],
@@ -674,7 +674,7 @@
             },
             {
                 category:
-                    Tooltip('<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>', 'Mods that bring a fresh touch to Minecraft adventure by adding powerful artifacts, relics, and other useful items, while introducing role-playing mechanics that make survival more challenging'),
+                    Tooltip('<span><i class="fa-solid fa-sm fa-hat-cowboy-side mx-2"></i>Adventure & RPG</span>', 'Mods that bring a fresh touch to Minecraft adventure by adding powerful artifacts, relics, and other useful items, and introducing role-playing mechanics.'),
                 mods: [
                     {
                         Name: [`${Popover('Adventurer’s amulets', [Links("https://www.curseforge.com/minecraft/mc-mods/adventurers-amulets/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -944,7 +944,7 @@
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-house-user mx-2"></i>Village & Villagers</span>', '') ,
+                Tooltip('<span><i class="fa-solid fa-sm fa-house-user mx-2"></i>Village & Villagers</span>', 'Mods that add contents related to villages and villagers, making them more useful and enhancing the overall gameplay experience') ,
                 mods: [
                     {
                         Name: [`${Popover('Millenaire', [Links("https://www.curseforge.com/minecraft/mc-mods/millenaire/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -974,109 +974,115 @@
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-moon mx-2"></i>Dimension</span>', ''),
+                Tooltip('<span><i class="fa-solid fa-sm fa-moon mx-2"></i>Dimensions</span>', 'Mods that add new dimensions or expand existing ones with additional content and adventures for the player'),
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Aroma 1997', [Links("https://www.curseforge.com/minecraft/mc-mods/aroma1997s-dimensional-world/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Introduces a new dimension where players can mine ores without damaging their main world`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Enderlicious', [Links("https://www.curseforge.com/minecraft/mc-mods/enderlicious/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Mod that expands the End dimension with new terrain and biomes, it includes features such as new rock types with building blocks, new Ores, and Biome Ambient Sounds. The mod also adds compatibility with Biomes O' Plenty and Hardcore Ender Expansion`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Hardcore Ender Expansion', [Links("https://www.curseforge.com/minecraft/mc-mods/hardcore-ender-expansion/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/hardcore-ender-expansion/versions', ICON_MODRINTH)])}`],
+                        Info: [`Mod that completely overhauls the End dimension, adding new islands, dungeons, and challenges. The mod introduces unique ores, new mobs, and different biomes, making the End a more engaging and adventurous place`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Netherlicious', [Links("https://www.curseforge.com/minecraft/mc-mods/netherlicious/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`A mod that overhauls the Nether dimension by backporting features from the Nether Update and introducing new ones, including biomes, mobs, vegetation, blocks, and the option to generate a 250-block-high Nether. It integrates well with mods like BoP, Natura, Thaumcraft, EFR, and Chisel`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('The Twilight Forest', [Links("https://www.curseforge.com/minecraft/mc-mods/the-twilight-forest/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Twilight Forest is a dimension exploration mod focused on adventure that will take you on a journey to meet strange creatures, exploring dungeons, and much more`],
+                        Addons: [],
+                        Fork: [`${Popover('The Twilight Forest - GTNH', [Links('https://github.com/GTNewHorizons/twilightforest', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with better compatibility, bug fixes, and performance improvements`],
+                    },
+                    {
+                        Name: [`${Popover('The Aether', [Links("https://www.curseforge.com/minecraft/mc-mods/aether/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`The Aether centers around a dimension high in the sky, filled with vast skylands of clouds and floating islands. This dimension features its own new survival adventure, based around a basic vanilla-esque survival progression that features new ores, mythical mobs, and three perilous dungeons each with their own powerful loot items`],
+                        Addons: [],
+                        Fork: [],
                     },
                 ],
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-hippo mx-2"></i>Mob & Creatures</span>', '') ,
+                Tooltip('<span><i class="fa-solid fa-sm fa-hippo mx-2"></i>Mobs & Creatures</span>', 'Mods that introduce new creatures, both hostile and passive, or alter the behavior of vanilla mobs to create a more dynamic world') ,
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Ender Zoo', [Links("https://www.curseforge.com/minecraft/mc-mods/ender-zoo/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds various EnderIO themed new mobs`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Hardcore Wither', [Links("https://www.curseforge.com/minecraft/mc-mods/hardcore-wither/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`The more Withers you fight, the harder the fight gets, and the sweeter the rewards. Withers spawned around you get increasingly difficult special abilities, there are several special abilities that can be disabled/adjusted in configs`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Infernal Mobs', [Links("https://www.curseforge.com/minecraft/mc-mods/atomicstrykers-infernal-mobs/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds Diablo-style modifiers to hostile mobs, making them harder to defeat but also more rewarding`],
+                        Addons: [],
+                        Fork: [`${Popover('Infernal Mobs - GTNH', [Links('https://github.com/GTNewHorizons/Infernal-Mobs', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with bug fixes, and performance improvements`],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Special Mobs', [Links("https://www.curseforge.com/minecraft/mc-mods/special-mobs/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Introduces variants to default mobs, such as creepers with fiery explosions, skeletons that shoot poisoned arrows, and zombies that leap at you, is highly configurable and allows you to adjust all support mob attributes and capabilities`],
+                        Addons: [],
+                        Fork: [`${Popover('Special Mobs - GTNH', [Links('https://github.com/GTNewHorizons/SpecialMobs', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod which adds more configuration options, and have better compatibility and integration with other mods, bug fixes, and performance improvements`],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Mo’ Creatures', [Links("https://www.curseforge.com/minecraft/mc-mods/mo-creatures/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Mod that adds over 40 new mobs to your game, it provides many new animal and monster mobs, as well as the ability to tame and ride some`],
+                        Addons: [],
+                        Fork: [`${Popover('Mo’ Creatures Continuation', [Links('https://github.com/quentin452/Mo-Creatures-Continuation', ICON_GITHUB)])} &nbsp:&nbsp An up to date version of the mod with bug fixes, performance improvements and remove dependency from custom mob spawner`, `${Popover('Mo’ Creatures Legacy', [Links('https://www.curseforge.com/minecraft/mc-mods/mo-creatures-legacy/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE), Links('https://modrinth.com/mod/mo-creatures-legacy/versions', ICON_MODRINTH)])} &nbsp:&nbsp fixed all known bugs, completed the implementation of several unfinished features, and introduced multilingual support as well as integration with various other mods and included new achievements`],
                     },
                 ],
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-gem mx-2"></i>Ores & Resources</span>', '') ,
+                Tooltip('<span><i class="fa-solid fa-sm fa-gem mx-2"></i>Ores & Resources</span>', 'Mods that add new resources and systems for generating ores or other materials in the world') ,
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Clay WorldGen', [Links("https://www.curseforge.com/minecraft/mc-mods/clay-worldgen/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds clay to the natural underground world generation of Minecraft, fully configurable`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Dense Ores', [Links("https://www.curseforge.com/minecraft/mc-mods/dense-ores/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds dense versions of ore that will drop 3x the items that regular ore will, textures are dynamically generated from the base ores texture and the equivalent stone texture. New ores can be added through the config system`],
+                        Addons: [`${Popover('Denseores Huge Compatibility Config', [Links('https://www.curseforge.com/minecraft/customization/denseores-huge-compatibility-config', ICON_CURSE)])} &nbsp:&nbsp Custom config of Denseores wich is compatible with a bunch of mods such as metallurgy, mekanism, thermal expansion, netherores and a lot more`],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Metallurgy', [Links("https://www.curseforge.com/minecraft/mc-mods/metallurgy/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Vast enhancement to the basic mining system, adding well over 48+ new metals, the mod is modular and highly configurable, introducing a new spawn system with no height restrictions. It is fully compatible with any other mod that adds ores also included in Metallurgy, additionally, it provides useful content such as smelters, crushers, metal chests, and more`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('NetherOres', [Links("https://www.curseforge.com/minecraft/mc-mods/netherores/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds a variety of ores to the Nether including modded ones, non-vanilla ores only spawn if a mod that uses them exists. All nether ores turn into their surface counterparts in a furnace`],
+                        Addons: [],
+                        Fork: [],
                     },
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Wild Netherwart', [Links("https://www.curseforge.com/minecraft/mc-mods/wild-netherwart/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Not much to say, just wild growing Nether Wart`],
+                        Addons: [],
+                        Fork: [],
                     },
                 ],
             },
