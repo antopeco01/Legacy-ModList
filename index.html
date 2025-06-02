@@ -1211,6 +1211,12 @@
                         Fork: [],
                     },
                     {
+                        Name: [`${Popover('Extreme Sound Muffler', [Links("https://www.curseforge.com/minecraft/mc-mods/extreme-sound-muffler-legacy/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Client side mod that allows you to muffle sounds selectively`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
                         Name: [`${Popover('Fast Leaf Decay', [Links("https://www.curseforge.com/minecraft/mc-mods/fast-leaf-decay/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
                         Info: [`Speeds up leaf decay after you cut down the wood in a tree, making leaves disappear almost instantly`],
                         Addons: [],
@@ -1262,7 +1268,7 @@
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-cogs mx-2"></i>Configuration</span>', ''),
+                Tooltip('<span><i class="fa-solid fa-sm fa-cogs mx-2"></i>Configuration</span>', 'Mods mainly designed for modpack developers that provide tools to configure various aspects such as loot tables, recipes, mob behavior, keybindings, and more'),
                 mods: [
                     {
                         Name: [`${Popover('BiomeTweaker', [Links("https://www.curseforge.com/minecraft/mc-mods/biometweaker/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
@@ -1285,12 +1291,18 @@
                     {
                         Name: [`${Popover('CraftTweaker', [Links("https://www.curseforge.com/minecraft/mc-mods/crafttweaker/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/crafttweaker/versions?g=1.7.10', ICON_MODRINTH)])}`],
                         Info: [`Allows modpacks and servers to customize the game. With CraftTweaker you can change recipes, script events, add new commands and even change item properties`],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
+                        Addons: [`${Popover('ModTweaker', [Links('https://www.curseforge.com/minecraft/mc-mods/modtweaker/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Addon for CraftTweaker, which provides Integration for an amount of mods`],
                         Fork: [],
                     },
                     {
                         Name: [`${Popover('Custom Things', [Links("https://www.curseforge.com/minecraft/mc-mods/customthings/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
                         Info: [`Custom Things is a mod which allows the creation of custom items, blocks, achievements, and recipes via JSON files`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Darkerer', [Links("https://www.curseforge.com/minecraft/mc-mods/darkerer/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Allows you to configure darkness levels for the Overworld, Nether, End, and other dimensions, with different modes available. Includes special compatibility with Twilight Forest`],
                         Addons: [],
                         Fork: [],
                     },
@@ -1337,7 +1349,7 @@
                         Fork: [],
                     },
                     {
-                        Name: [`${Popover('Modern KeyBinding ', [Links("https://www.curseforge.com/minecraft/mc-mods/modern-keybinding/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/modernkeybinding/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Name: [`${Popover('Modern KeyBinding', [Links("https://www.curseforge.com/minecraft/mc-mods/modern-keybinding/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/modernkeybinding/versions?g=1.7.10', ICON_MODRINTH)])}`],
                         Info: [`Allows you to define a keybinding's activation key with modifiers. Keybindings with the same activation key but different key conflict contexts no longer conflict, and non-conflict keys can activate all bound actions when pressed`],
                         Addons: [],
                         Fork: [],
@@ -1412,25 +1424,151 @@
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-rotate-left mx-2"></i>Backport</span>', ''),
+                Tooltip('<span><i class="fa-solid fa-sm fa-rotate-left mx-2"></i>Backport</span>', 'Mods that implement features from newer versions of Minecraft, bringing a more modern and updated experience to the game.'),
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Aquaacrobatics', [Links("https://github.com/0hwx/aquaacrobatics?tab=readme-ov-file", ICON_GITHUB)])}`],
+                        Info: [`Backport of the new movement features added in modern versions of Minecraft, most notably the swimming mechanic`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Backhand', [Links("https://www.curseforge.com/minecraft/mc-mods/backhand/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/backhand/versions', ICON_MODRINTH)])}`],
+                        Info: [`Backport of the offhand feature from later versions of Minecraft, allowing players to use an offhand slot. <br/><strong>Note </strong> :  Incompatible with Battlegear 2 and The Offhand mod by TCLProject`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Campfire Backport', [Links("https://www.curseforge.com/minecraft/mc-mods/campfire-backport/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/campfire-backport/versions', ICON_MODRINTH)])}`],
+                        Info: [`Brings campfires and soul campfires from modern versions of vanilla Minecraft, also have many config settings with new features like healing campfire and is fully compatible with a lot of mods`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('D-Mod', [Links("https://www.curseforge.com/minecraft/mc-mods/dmod/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Brings foxes back along with extra features and the bundle item from modern Minecraft versions. <br/><strong>Note </strong> : EFR is highly recommended`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Et Futurum Requiem', [Links("https://www.curseforge.com/minecraft/mc-mods/et-futurum-requiem/files/all?page=1&pageSize=20", ICON_CURSE), Links('https://modrinth.com/mod/etfuturum/versions', ICON_MODRINTH)])}`],
+                        Info: [`Mod that backports most features from recent Minecraft updates, giving the game a modern feel. It is highly configurable, allowing each feature to be individually modified or disabled. <br/><strong>Note </strong> : not all features have been backported because some are already covered by other mods, others are difficult to implement, or were intentionally left out by the author of the mod`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('FloatingItems', [Links("https://www.curseforge.com/minecraft/mc-mods/floatingitems/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`backports items ability to float in water to pre-1.13 versions`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('FluidLogged', [Links("https://github.com/GTMEGA/Fluidlogged", ICON_GITHUB)])}`],
+                        Info: [`Waterlogging backport for 1.7.10, but with all forge fluids too`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Modern Splash', [Links("https://www.curseforge.com/minecraft/mc-mods/modern-splash/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/modern-splash/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Mod that changes the loading screen to high version style, also has a configurable dark mode`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Not Enough Pets', [Links("https://www.curseforge.com/minecraft/mc-mods/not-enough-pets/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/not-enough-pets/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Backport parrots from newer minecraft version as well as dogs and cats breeds`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('NovaCraft', [Links("https://www.curseforge.com/minecraft/mc-mods/novacraft/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/novacraft/versions', ICON_MODRINTH)])}`],
+                        Info: [`A rewrite of Cave & Cliffs Fundamentals that expands the base game and makes Survival and Hardcore modes more challenging. It backports features like Geodes and Ancient Cities, and introduces a wide range of new content, including overhauled ore generation, cave decorations and structures, an expanded End dimension, and new mobs`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('SkinPort', [Links("https://www.curseforge.com/minecraft/mc-mods/skinport/files/all?page=1&pageSize=20", ICON_CURSE)])}`],
+                        Info: [`Adds rendering support for the new skin format introduced in minecraft 1.8`],
+                        Addons: [],
+                        Fork: [],
                     },
                 ],
             },
             {
                 category:
-                Tooltip('<span><i class="fa-solid fa-sm fa-palette mx-2"></i>Cosmetic</span>', ''),
+                Tooltip('<span><i class="fa-solid fa-sm fa-palette mx-2"></i>Cosmetic</span>', 'Mods that enhance the game with graphical and environmental details, making the world more immersive'),
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('BetterAchievements', [Links("https://www.curseforge.com/minecraft/mc-mods/betterachievements/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Enhances the achievement screen by adding tabs per achievement page, allowing users to scroll through tabs, users can also customize arrow colors and set tab icons`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Custom Loading Screen', [Links("https://www.curseforge.com/minecraft/mc-mods/better-loading-screen/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/custom-loading-screen/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Enables extensive customization of the loading screen using JSON files`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Custom Main Menu', [Links("https://www.curseforge.com/minecraft/mc-mods/custom-main-menu/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`This mod allows you to modify the main menu using a json file, you can modify the content / position of pretty much everything the vanilla menu contains`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Ding', [Links("https://www.curseforge.com/minecraft/mc-mods/ding/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Plays a configurable sound when: Minecraft loads and reaches the Main Menu, the world loads, Minecraft is done reloading resources`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Hats', [Links("https://www.curseforge.com/minecraft/mc-mods/hats/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`introduces over 100 distinct hats that can be customized and downloaded from online sources`],
+                        Addons: [`${Popover('Hat Stand', [Links('https://www.curseforge.com/minecraft/mc-mods/hat-stand/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp allows players to display their hats on a stand without wearing them`],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Its the little things', [Links("https://www.curseforge.com/minecraft/mc-mods/its-the-little-things/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Allows customization of elements such as the modpack icon, window title, welcome screen, warning messages, system requirements, and more`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('MAtmos', [Links("https://www.curseforge.com/minecraft/mc-mods/matmos/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE), Links('https://modrinth.com/mod/matmos/versions?g=1.7.10', ICON_MODRINTH)])}`],
+                        Info: [`Sound atmosphere generator that dinamically generates a soundscape of natural noises to match. filling out that perpetual silence of Minecraft`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Mob Dismemberment', [Links("https://www.curseforge.com/minecraft/mc-mods/mob-dismemberment/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Adds a visual effect where the body parts of mobs fall to the ground upon death with blood particles`],
+                        Addons: [`${Popover('Mob Amputation', [Links('https://www.curseforge.com/minecraft/mc-mods/mob-amputation/files/all?page=1&pageSize=20&version=1.7.10', ICON_CURSE)])} &nbsp:&nbsp Tools will have a random chance of amputing limbs of several mob while they are still alive`],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('OverloadedArmorBar', [Links("https://github.com/GTNewHorizons/OverloadedArmorBar", ICON_GITHUB)])}`],
+                        Info: [`Allows armor values over 20 to be displayed as different colored configurable icons depending on how many times you fill the bar`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Smooth Font', [Links("https://www.curseforge.com/minecraft/mc-mods/smooth-font/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`This mod draws all fonts, including resource pack's fonts, smoothly for better readability on all scales, you can use any font installed on your computer`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Sound Physics', [Links("https://www.curseforge.com/minecraft/mc-mods/sound-physics-legacy/files/all?page=1&pageSize=20&version=1.7.10s", ICON_CURSE)])}`],
+                        Info: [`Enhances in game audio by introducing realistic sound propagation, including reverb, occlusion, and Doppler effects, creating a more immersive experience`],
+                        Addons: [],
+                        Fork: [],
+                    },
+                    {
+                        Name: [`${Popover('Better Foliage', [Links("https://www.curseforge.com/minecraft/mc-mods/better-foliage/files/all?page=1&pageSize=20&version=1.7.10", ICON_CURSE)])}`],
+                        Info: [`Enhances the appearance of vegetation in the game, making trees and other greenery look more natural and detailed`],
+                        Addons: [],
+                        Fork: [],
                     },
                 ],
             },
@@ -1439,10 +1577,10 @@
                 Tooltip('<span><i class="fa-solid fa-sm fa-brush mx-2"></i>Resource pack</span>', ''),
                 mods: [
                     {
-                        Name: [`${Popover('', [Links("", ICON_CURSE)])}`],
-                        Info: [` `],
-                        Addons: [`${Popover('', [Links('', ICON_CURSE)])} &nbsp:&nbsp`],
-                        Fork: [`${Popover('', [Links('', ICON_GITHUB)])} &nbsp:&nbsp`],
+                        Name: [`${Popover('Modernity', [Links("https://www.curseforge.com/minecraft/texture-packs/modernity/files/all?page=1&pageSize=20&showAlphaFiles=show", ICON_CURSE), Links('https://modrinth.com/resourcepack/modernity/versions', ICON_MODRINTH)])}`],
+                        Info: [`Backport of modern vanilla block and fluid textures, including water breackdown`],
+                        Addons: [`${Popover('Modernity Adjunct', [Links('https://modrinth.com/resourcepack/modernity-adjunct/versions', ICON_MODRINTH)])} &nbsp:&nbsp Backports of textures from more modern versions of many popular mods`],
+                        Fork: [],
                     },
                 ],
             },
