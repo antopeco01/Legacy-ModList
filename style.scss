@@ -143,9 +143,15 @@ td {
     em > strong > a {
       color: $color-text-secondary;
     }
+    & em > strong {
+      color: $color-text-secondary;
+    }
   }
   &.fork-row {
     em > strong > a {
+      color: $color-text-tertiary;
+    }
+    & em > strong {
       color: $color-text-tertiary;
     }
   }

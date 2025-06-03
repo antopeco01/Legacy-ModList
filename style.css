@@ -111,7 +111,13 @@ td.info-row > strong {
 td.addon-row em > strong > a {
   color: #448361;
 }
+td.addon-row em > strong {
+  color: #448361;
+}
 td.fork-row em > strong > a {
+  color: #cb912f;
+}
+td.fork-row em > strong {
   color: #cb912f;
 }
 
