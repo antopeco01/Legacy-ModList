@@ -199,7 +199,6 @@ jsonData.forEach((entry) => {
   // Header
   const header = document.createElement("h2");
   header.id = `header-${safeId}`;
-  header.classList.add("fa");
   header.classList.add("mb-3");
   header.style.marginTop = "4.5rem";
   header.innerHTML = temp.firstChild.innerHTML;
@@ -333,32 +332,15 @@ jsonData.forEach((entry) => {
   const menuItem = document.createElement("li");
   let link = document.createElement("span");
   link.innerHTML = category;
-  if(window.innerWidth<=768){
+  if (window.innerWidth <= 768) {
     link.innerHTML = link.firstChild.innerHTML;
-  }else{
+  } else {
     link = link.firstChild;
   }
   link.className = "dropdown-item Tooltip";
   link.addEventListener("click", () => {
     let el = document.getElementById(`header-${safeId}`);
     if (el) {
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          const entry = entries[0];
-          if (entry.isIntersecting) {
-            el.classList.add("fa-bounce");
-            setTimeout(() => {
-              el.classList.remove("fa-bounce");
-            }, 500);
-            observer.disconnect();
-          }
-        },
-        {
-          root: null,
-          threshold: 1.0,
-        }
-      );
-      observer.observe(el);
       window.scrollTo({
         top:
           el.getBoundingClientRect().top +
@@ -407,6 +389,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   head.querySelector("i").addEventListener("click", () => {
     const el = document.getElementById("head");
+    head.classList.remove("pop-in");
+    head.classList.add("pop-out");
+    head.classList.add("clicked");
+    setTimeout(() => {
+      head.style.display = "none";
+    }, 1000);
     el.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
@@ -431,13 +419,18 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach((entry) => {
         const y = window.innerHeight - entry.boundingClientRect.bottom;
         if (y > 0) {
-          head.classList.remove("pop-out");
-          head.style.display = "block";
-          head.classList.add("pop-in");
-          headIcon.classList.add("fa-bounce");
-          setTimeout(() => {
-            headIcon.classList.remove("fa-bounce");
-          }, 1000);
+          if(head.classList.contains("clicked")){
+            head.classList.remove("clicked");
+          }
+          else{
+            head.classList.remove("pop-out");
+            head.style.display = "block";
+            head.classList.add("pop-in");
+            headIcon.classList.add("fa-bounce");
+            setTimeout(() => {
+              headIcon.classList.remove("fa-bounce");
+            }, 1000);
+          }
         } else {
           head.classList.remove("pop-in");
           head.classList.add("pop-out");
@@ -453,13 +446,13 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   observer.observe(target);
 
-  if(window.innerWidth <= 768){
-    head.addEventListener('click', ()=>{
-      head.style.color = "#58a6ff"
+  if (window.innerWidth <= 768) {
+    head.addEventListener("click", () => {
+      head.style.color = "#58a6ff";
       setTimeout(() => {
-        head.style.color = "#ffffff"
+        head.style.color = "#ffffff";
       }, 200);
-    })
+    });
   }
 });
 //#endregion Listeners
