@@ -4,21 +4,10 @@ const label = document.getElementById("searchLabel");
 const searchBar = document.getElementById("searchBar");
 const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
-const deleteBtn = document.getElementById("delete");
 const navigator = document.getElementById("navigator");
-
-document.querySelectorAll(".customBtn").forEach((button) => {
-  button.addEventListener("click", () => {
-    button.classList.add("scaled");
-    setTimeout(() => {
-      button.classList.remove("scaled");
-    }, 200);
-  });
-});
 
 input.addEventListener("mouseenter", () => {
   label.classList.add("fa-bounce");
-
   setTimeout(() => {
     label.classList.remove("fa-bounce");
   }, 1000);
@@ -30,13 +19,6 @@ input.addEventListener("input", () => {
   } else {
     label.style.display = "block";
   }
-});
-
-deleteBtn.addEventListener("click", () => {
-  input.value = "";
-  label.style.display = "block";
-
-  updateResults();
 });
 
 input.addEventListener("focus", () => {
@@ -51,11 +33,6 @@ let matches = [];
 let currentIndex = -1;
 
 function highlightElement(el) {
-  document.querySelectorAll(".search-highlight-out").forEach((e) => {
-    e.classList.remove("search-highlight-out");
-    e.classList.remove("scale-down");
-    e.style.outline = "";
-  });
   if (el) {
     const observer = new IntersectionObserver(
       (entries, observer) => {
@@ -68,8 +45,11 @@ function highlightElement(el) {
             el.classList.add("scale-down");
             el.classList.remove("search-highlight");
             el.classList.add("search-highlight-out");
+            setTimeout(() => {
+              el.classList.remove("search-highlight-out");
+              el.classList.remove("scale-down");
+            }, 500);
           }, 500);
-          el.style.outline = "";
           observer.disconnect();
         }
       },
@@ -106,6 +86,16 @@ function updateCounter() {
       highlightElement(matches[currentIndex]);
       updateCounter();
     });
+
+    const deleteBtn = document.createElement("span");
+    deleteBtn.innerHTML =
+      '<button class="btn btn-sm" id="delete"><i class="fas fa-xmark"></i></button>';
+    deleteBtn.addEventListener("click", () => {
+      label.style.display = "block";
+      input.value = "";
+      updateResults();
+    });
+    searchBar.appendChild(deleteBtn);
 
     document.querySelectorAll(".customBtn").forEach((button) => {
       button.addEventListener("click", () => {
@@ -144,6 +134,10 @@ function updateResults() {
     while (navigator.firstChild) {
       navigator.removeChild(navigator.firstChild);
     }
+    const element = document.getElementById("delete");
+    if (element) {
+      element.remove();
+    }
     highlightElement(null);
     return;
   }
@@ -164,7 +158,6 @@ input.addEventListener("input", updateResults);
 const contentContainer = document.getElementById("content");
 const categoryMenu = document.getElementById("categoryMenu");
 const btn = document.getElementById("categoryMenuBtn");
-const menu = document.getElementById("categoryMenu");
 
 document.addEventListener("click", (e) => {
   if (!btn.contains(e.target)) {
@@ -199,23 +192,23 @@ jsonData.forEach((entry) => {
   const contents = [0, 0, 0, 0];
   const category = entry.category;
   const mods = entry.mods;
-  const safeId = category.replace(/\s+/g, "_");
+  let temp = document.createElement("div");
+  temp.innerHTML = category;
+  const safeId = temp.textContent.replace(/\s+/g, "_");
 
   // Header
   const header = document.createElement("h2");
   header.id = `header-${safeId}`;
-  header.classList.add("fa");
   header.classList.add("mb-3");
-  header.innerHTML = category;
+  header.style.marginTop = "4.5rem";
+  header.innerHTML = temp.firstChild.innerHTML;
   contentContainer.appendChild(header);
 
   // Table
   const table = document.createElement("table");
-  table.className = "table table-dark table-bordered mb-0";
+  table.className = "table table-dark table-bordered mb-0 custom-table";
   table.id = safeId;
   table.name = safeId;
-  table.style.tableLayout = "fixed";
-  table.style.width = "100%";
 
   const columnKeys = Object.keys(mods[0]);
   const columnClasses = {};
@@ -274,44 +267,42 @@ jsonData.forEach((entry) => {
       contents[index] += value.length;
       const td = document.createElement("td");
       td.className = columnClasses[index] || "";
-      if (td.className == "info-row") {
-        td.innerHTML = value;
-      } else {
-        td.innerHTML = value
-          .map((entry) => {
-            let id = null;
-            let title = "";
-            const match = entry.match(
-              /<em>\s*<strong>(<a[^>]*>(.*?)<\/a>|(.*?))<\/strong>\s*<\/em>/
-            );
+      td.innerHTML = value
+        .map((entry) => {
+          let id = null;
+          let title = "";
+          const match = entry.match(
+            /<em>\s*<strong>\s*<a[^>]*>(.*?)<\/a>\s*<\/strong>\s*<\/em>/
+          );
 
-            if (match) {
-              id = match[2] || match[3];
-              title = match[0];
-            }
-            if (!id || !title) return `${entry}`;
+          if (match) {
+            title = match[0];
+            const container = document.createElement("div");
+            container.innerHTML = title;
+            id = container.querySelector("a")?.textContent?.trim() ?? null;
+          }
+          if (!id || !title) return `${entry}`;
 
-            const normalizedID = `ref-${id
-              .toLowerCase()
-              .replace(/\s+/g, "")
-              .replace(/[^a-z0-9\-_]/g, "")}`;
-            const contentSpan = `<span>${entry
-              .replace(title, "")
-              .trim()}</span>`;
-            const titleSpan = `<span id="${normalizedID}">${title}${contentSpan}</span>`;
-            return `${titleSpan}`;
-          })
-          .join("<br/>");
-      }
+          const normalizedID = `ref-${id
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[^a-z0-9\-_]/g, "")}`;
+
+          return `<span id="${normalizedID}">${title}${`<span>${entry
+            .replace(title, "")
+            .trim()}</span>`}</span>`;
+        })
+        .join("<br/>");
+
       row.appendChild(td);
     });
     tbody.appendChild(row);
   });
-
   table.appendChild(tbody);
-  contentContainer.appendChild(table);
-  const tableFooter = document.createElement("div");
-  tableFooter.innerHTML = `<div class="d-flex" style="margin-bottom: 4.5rem;">
+
+  const tableFooter = document.createElement("caption");
+  tableFooter.style.color = "#ffffff";
+  tableFooter.innerHTML = `<div class="d-flex">
           <div style="width: 17%;vertical-align: top; text-align: left; padding: 0.75rem;">
             Content : ${contents.reduce((acc, val) => {
               return acc + val;
@@ -327,34 +318,29 @@ jsonData.forEach((entry) => {
             Forks : ${contents[3]}
           </div>
         </div>`;
-  contentContainer.appendChild(tableFooter);
+  table.appendChild(tableFooter);
+
+  const tableResponsive = document.createElement("div");
+  tableResponsive.classList.add("table-responsive");
+  tableResponsive.appendChild(table);
+
+  contentContainer.appendChild(tableResponsive);
+
   totalContents = totalContents.map((val, i) => val + contents[i]);
 
   // NavBar
   const menuItem = document.createElement("li");
-  const link = document.createElement("a");
-  link.className = "dropdown-item";
+  let link = document.createElement("span");
   link.innerHTML = category;
+  if (window.innerWidth <= 768) {
+    link.innerHTML = link.firstChild.innerHTML;
+  } else {
+    link = link.firstChild;
+  }
+  link.className = "dropdown-item Tooltip";
   link.addEventListener("click", () => {
     let el = document.getElementById(`header-${safeId}`);
     if (el) {
-      const observer = new IntersectionObserver(
-        (entries, observer) => {
-          const entry = entries[0];
-          if (entry.isIntersecting) {
-            el.classList.add("fa-bounce");
-            setTimeout(() => {
-              el.classList.remove("fa-bounce");
-            }, 500);
-            observer.disconnect();
-          }
-        },
-        {
-          root: null,
-          threshold: 1.0,
-        }
-      );
-      observer.observe(el);
       window.scrollTo({
         top:
           el.getBoundingClientRect().top +
@@ -368,6 +354,7 @@ jsonData.forEach((entry) => {
   menuItem.appendChild(link);
   categoryMenu.appendChild(menuItem);
 });
+
 document
   .getElementById("tot-content")
   .querySelector(
@@ -382,7 +369,7 @@ document
   .getElementById("tot-mod")
   .querySelector(
     "span"
-  ).innerHTML = `<i class="fa-brands fa-java fa-3x me-2"></i>Total number of Mod : ${totalContents[1]}`;
+  ).innerHTML = `<i class="fa-brands fa-java fa-3x me-2" style="text-shadow: 0 0 1px currentColor, 0 0 1px currentColor, 0 0 1px currentColor;"></i>Total number of Mod : ${totalContents[1]}`;
 document
   .getElementById("tot-addon")
   .querySelector(
@@ -400,67 +387,72 @@ document.addEventListener("DOMContentLoaded", function () {
   const head = document.getElementById("go-to-head");
   const headIcon = head.querySelector("i");
 
-  head.querySelector("a").addEventListener("click", () => {
+  head.querySelector("i").addEventListener("click", () => {
     const el = document.getElementById("head");
+    head.classList.remove("pop-in");
+    head.classList.add("pop-out");
+    head.classList.add("clicked");
+    setTimeout(() => {
+      head.style.display = "none";
+    }, 1000);
     el.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  headIcon.addEventListener("mouseenter", () => {
-    headIcon.style.color = "#58a6ff";
-    headIcon.classList.add("fa-bounce");
-    setTimeout(() => {
-      headIcon.classList.remove("fa-bounce");
-    }, 1000);
-  });
-  headIcon.addEventListener("mouseleave", () => {
-    headIcon.style.color = "#ffffff";
+  document.getElementById("source-shortcut").addEventListener("click", () => {
+    const el = document.getElementById("source-section");
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
   document
-    .querySelectorAll('td[class^="name-row"] em > strong')
-    .forEach((em) => {
-      em.classList.add("me-3");
-    });
-
-  document.querySelectorAll(".animated-icon").forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      el.classList.remove("scale-down");
-      el.classList.add("scale-up-icon");
-    });
-    el.addEventListener("mouseleave", () => {
-      el.classList.add("scale-down");
-      el.classList.remove("scale-up-icon");
-    });
-  });
-
-  Array.from(document.querySelectorAll("a"))
-    .filter((a) => a.parentElement && a.parentElement.tagName !== "LI")
-    .forEach((el) => {
-      const isIcon = el.querySelector("i, img");
-      if (isIcon) {
-        el.addEventListener("mouseenter", () => {
-          el.classList.remove("scale-down");
-          el.classList.add("scale-up-icon");
-        });
-        el.addEventListener("mouseleave", () => {
-          el.classList.add("scale-down");
-          el.classList.remove("scale-up-icon");
-        });
-      } else {
-        el.addEventListener("mouseenter", () => {
-          el.classList.remove("scale-down");
-          el.classList.add("scale-up");
-        });
-        el.addEventListener("mouseleave", () => {
-          el.classList.add("scale-down");
-          el.classList.remove("scale-up");
-        });
-      }
-    });
+    .getElementById("source-section")
+    .querySelectorAll("a")
+    .forEach((el) => el.classList.add("source-link"));
 
   document.querySelectorAll("a[href]").forEach((link) => {
     link.setAttribute("target", "_blank");
     link.setAttribute("rel", "noopener noreferrer");
   });
+
+  const target = document.getElementById("header-Redstone_&_Logistic");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const y = window.innerHeight - entry.boundingClientRect.bottom;
+        if (y > 0) {
+          if(head.classList.contains("clicked")){
+            head.classList.remove("clicked");
+          }
+          else{
+            head.classList.remove("pop-out");
+            head.style.display = "block";
+            head.classList.add("pop-in");
+            headIcon.classList.add("fa-bounce");
+            setTimeout(() => {
+              headIcon.classList.remove("fa-bounce");
+            }, 1000);
+          }
+        } else {
+          head.classList.remove("pop-in");
+          head.classList.add("pop-out");
+          setTimeout(() => {
+            head.style.display = "none";
+          }, 1000);
+        }
+      });
+    },
+    {
+      threshold: 1,
+    }
+  );
+  observer.observe(target);
+
+  if (window.innerWidth <= 768) {
+    head.addEventListener("click", () => {
+      head.style.color = "#58a6ff";
+      setTimeout(() => {
+        head.style.color = "#ffffff";
+      }, 200);
+    });
+  }
 });
 //#endregion Listeners
