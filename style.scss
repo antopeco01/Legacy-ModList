@@ -118,7 +118,6 @@ td {
   //   text-decoration: none;
   // }
   &.name-row {
-    em > strong,
     a {
       color: $color-text-primary;
     }
@@ -132,7 +131,7 @@ td {
     }
   }
   &.addon-row {
-    em > strong > a {
+    a {
       color: $color-text-secondary;
     }
     & em > strong {
@@ -140,7 +139,7 @@ td {
     }
   }
   &.fork-row {
-    em > strong > a {
+    a {
       color: $color-text-tertiary;
     }
     & em > strong {
@@ -150,7 +149,7 @@ td {
 }
 
 .github-tooltip-icon {
-  margin-top: 13px;
+  margin-top: 12px;
   scale: 1.4;
   color: $color-text-primary;
 }
