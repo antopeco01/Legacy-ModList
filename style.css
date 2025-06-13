@@ -90,8 +90,9 @@ td {
   padding: 0.75rem;
 }
 
-td.name-row a {
+td.name-row em > strong > span {
   color: #58a6ff;
+  text-decoration: underline;
 }
 td.info-row em > strong {
   color: #58a6ff;
@@ -99,14 +100,16 @@ td.info-row em > strong {
 td.info-row > strong {
   text-decoration: underline;
 }
-td.addon-row a {
+td.addon-row em > strong > span {
   color: #448361;
+  text-decoration: underline;
 }
 td.addon-row em > strong {
   color: #448361;
 }
-td.fork-row a {
+td.fork-row em > strong > span {
   color: #cb912f;
+  text-decoration: underline;
 }
 td.fork-row em > strong {
   color: #cb912f;
@@ -206,7 +209,7 @@ input:not(:placeholder-shown) + label {
 }
 
 #categoryMenuBtn {
-  z-index: 1050;
+  z-index: 9999;
   background-color: rgba(33, 38, 45, 0.937254902);
   border: 2px solid #ffffff;
   color: #ffffff;

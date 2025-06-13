@@ -272,14 +272,14 @@ jsonData.forEach((entry) => {
           let id = null;
           let title = "";
           const match = entry.match(
-            /<em>\s*<strong>\s*<a[^>]*>(.*?)<\/a>\s*<\/strong>\s*<\/em>/
+            /<em>\s*<strong>\s*<span[^>]*>(.*?)<\/span>\s*<\/strong>\s*<\/em>/
           );
 
           if (match) {
             title = match[0];
             const container = document.createElement("div");
             container.innerHTML = title;
-            id = container.querySelector("a")?.textContent?.trim() ?? null;
+            id = container.querySelector("span")?.textContent?.trim() ?? null;
           }
           if (!id || !title) return `${entry}`;
 

@@ -118,8 +118,9 @@ td {
   //   text-decoration: none;
   // }
   &.name-row {
-    a {
+    em > strong > span {
       color: $color-text-primary;
+      text-decoration: underline;
     }
   }
   &.info-row {
@@ -131,16 +132,18 @@ td {
     }
   }
   &.addon-row {
-    a {
+    em > strong > span {
       color: $color-text-secondary;
+      text-decoration: underline;
     }
     & em > strong {
       color: $color-text-secondary;
     }
   }
   &.fork-row {
-    a {
+    em > strong > span {
       color: $color-text-tertiary;
+      text-decoration: underline;
     }
     & em > strong {
       color: $color-text-tertiary;
@@ -252,7 +255,7 @@ input:not(:placeholder-shown) + label {
 }
 
 #categoryMenuBtn {
-  z-index: 1050;
+  z-index: 9999;
   background-color: $color-bg-nav;
   border: 2px solid $color-text-title;
   color: $color-text-title;

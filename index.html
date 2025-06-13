@@ -15,26 +15,6 @@
 
 <body>
 
-    <!-- Navbar -->
-    <div class="dropdown" style="position: fixed; top: 32px; right: 0px; padding-right: 48px;">
-        <div class="d-flex justify-content-between align-items-center">
-            <div id="searchBar" class="d-flex justify-content-between align-items-center px-3 me-3">
-                <div id="navigator" class="d-flex justify-content-between align-items-center">
-                </div>
-                <label for="searchInput" id="searchLabel"><i class="fas fa-search"
-                        style="color: #f6f0fc99;"></i></label>
-                <input type="text" class="form-control me-2" placeholder="Find Content..." id="searchInput" />
-            </div>
-            <div>
-                <button class="btn" type="button" id="categoryMenuBtn" data-bs-toggle="dropdown" aria-expanded="false"
-                    aria-label="Vai alla categoria">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end mt-2" id="categoryMenu"></ul>
-            </div>
-        </div>
-    </div>
-
     <!-- Title Bar -->
     <div id="head" class="mb-5 d-flex justify-content-start align-items-center"
         style=" border-bottom: 1.5px solid #f6f0fc; background-color: #010409;">
@@ -249,6 +229,26 @@
         <i class="fas fa-2x fa-turn-up"></i>
     </div>
 
+    <!-- Navbar -->
+    <div class="dropdown" style="position: fixed; top: 32px; right: 0px; padding-right: 48px;">
+        <div class="d-flex justify-content-between align-items-center">
+            <div id="searchBar" class="d-flex justify-content-between align-items-center px-3 me-3">
+                <div id="navigator" class="d-flex justify-content-between align-items-center">
+                </div>
+                <label for="searchInput" id="searchLabel"><i class="fas fa-search"
+                        style="color: #f6f0fc99;"></i></label>
+                <input type="text" class="form-control me-2" placeholder="Find Content..." id="searchInput" />
+            </div>
+            <div>
+                <button class="btn" type="button" id="categoryMenuBtn" data-bs-toggle="dropdown" aria-expanded="false"
+                    aria-label="Vai alla categoria">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end mt-2" id="categoryMenu"></ul>
+            </div>
+        </div>
+    </div>
+
     <!-- #region Script -->
 
     <!-- Data -->
@@ -265,7 +265,7 @@
         }
 
         function Popover(mod, icons) {
-            return `<em><strong><a href="#" onclick="event.preventDefault()" title="Links" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex justify-content-center gap-3">${icons.join(' ')}</span>'>${mod}</a></strong></em>`;
+            return `<em><strong><span style ="cursor:pointer" title="Links" tabindex="0" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true" data-bs-content='<span class="d-flex justify-content-center gap-3">${icons.join(' ')}</span>'>${mod}</span></strong></em>`;
         }
 
         function Tooltip(category, description) {
@@ -2226,8 +2226,6 @@
         const tooltipElements = document.querySelectorAll('.Tooltip');
         tooltipElements.forEach(el => {
             new bootstrap.Popover(el, {
-                trigger: 'hover',
-                html: true,
                 container: 'body',
                 customClass: 'customTooltip'
             });
